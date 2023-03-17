@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate  } from "react-router-dom";
+import '../assets/styles/registerstyles.css';
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -33,25 +34,22 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h1>Register</h1>
+    <div className="registerContainer">
       <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(e) => {
+      <h1>Create an account</h1>
+        <input type="text" name="username" value={username} onChange={(e) => {
             setUsername(e.target.value)
-          }} required />
-        </label>
-        <label>
-          Password:
-          <input type="text" value={password} onChange={(e) => {
-            setPassword(e.target.value)}} required />
-        </label>
+          }} placeholder='Username' required />
+        
+        <input type="text" name="password" value={password} onChange={(e) => {
+            setPassword(e.target.value)}} placeholder='Password' required />
         <button type="submit">Create account</button>
-      </form>
-      <span>
+        <span>
         Already have an account?<Link to="auth/login">Login</Link>
       </span>
+      </form>
+
+      <div className="regHeroImage"><p>"Connecting the world, one post at a time"</p></div>
     </div>
   );
 };

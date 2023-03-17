@@ -1,9 +1,21 @@
-import React from 'react'
+import React from "react";
+import { useNavigate  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  return (
-    <div>Navbar</div>
-  )
-}
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.clear()
+    navigate('/auth/login')
+  }
 
-export default Navbar
+  return (
+    <nav>
+      <Link to="/posts">Home</Link>
+      <img src='' />;
+      <button onClick={logout}>Logout</button>
+    </nav>
+  );
+};
+
+export default Navbar;

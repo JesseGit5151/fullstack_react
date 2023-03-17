@@ -15,8 +15,7 @@ const BlogSchema = new Schema({
   },
   author: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    ref: 'users'
   },
   createdAt: {
     type: Date,

@@ -6,6 +6,7 @@ import Posts from "./components/Posts";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 
+
 function App() {
   return (
     <div className="App">

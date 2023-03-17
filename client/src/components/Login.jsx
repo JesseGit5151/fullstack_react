@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate  } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -21,9 +22,9 @@ const Login = () => {
           password,
         }),
       });
-      console.log(postData);
+      console.log(`post data` + postData);
       let result = await postData.json();
-      console.log(result.user);
+      console.log(`resultuser` + result.user);
       if (result.user) {
         //4
         localStorage.setItem('token', result.user)
@@ -38,17 +39,18 @@ const Login = () => {
     <>
       <form onSubmit={handleSubmit}>
       <h1>Welcome Back</h1>
-        <label>
-          Username:
+        
           <input type="text" value={username} onChange={(e) => {
-            setUsername(e.target.value)}} required />
-        </label>
-        <label>
-          Password:
+            setUsername(e.target.value)}} placeholder='Username' required />
+        
+        
           <input type="text" value={password} onChange={(e) => {
-            setPassword(e.target.value)}} required />
-        </label>
+            setPassword(e.target.value)}} placeholder='Password' required />
+        
         <button type="submit">LogIn</button>
+        <span>
+        Don't have an account?<Link to="/">Sign up</Link>
+      </span>
       </form>
     </>
   )

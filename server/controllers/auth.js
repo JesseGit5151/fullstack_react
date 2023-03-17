@@ -35,7 +35,7 @@ const logInUser = async (req, res) => {
   let { username, password } = req.body;
   // Look up user in database
   const user = await Users.findOne({ username });
-  console.log(user)
+  
   if (!user) {
     return res.status(401).send({
         success: false,
@@ -48,7 +48,7 @@ if (!compareSync(password, user.password)) {
     message: "Incorrect password."
 })
 }
-  console.log(user);
+  
   if (user) {
     const token = jwt.sign(
       {
@@ -58,11 +58,11 @@ if (!compareSync(password, user.password)) {
       "secret"
     );
     //4
-    res.json({ status: "ok", user: `Bearer ${token}` });
+    res.json({ status: "ok", user: `Bearer ${token}`, username: user.username });
   } else {
     res.json({ status: "bad" });
   }
-  console.log("logged in");
+  
 };
 
 const logoutUser = async (req, res) => {
