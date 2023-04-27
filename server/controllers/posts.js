@@ -2,6 +2,7 @@ const Users = require("../models/users")
 const Post = require("../models/Posts")
 
 const multer = require("multer")
+//TODO:Create another storage for user avatars
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
     callback(null, "./images")
@@ -49,7 +50,7 @@ module.exports.createPost = async (req, res) => {
     const user = await Users.findById(req.user.id)
     //Create Post then save
     //console.log(user)
-    const { title, description, image } = req.body
+    const { title, description } = req.body
     const newPost = new Post({
       title: title,
       description: description,

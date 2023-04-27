@@ -43,8 +43,8 @@ const AddPost = () => {
   }
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        Add New Post!
+      <button type="button" onClick={handleOpen} style={{border:`none`, backgroundColor:`transparent`, cursor:`pointer`, position:`absolute`, right:`5%`}}>
+      <i className="fa fa-plus-circle" style={{fontSize: `36px`}}></i>Enter new
       </button>
       <Modal
         onClose={handleClose}

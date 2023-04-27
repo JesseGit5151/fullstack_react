@@ -19,6 +19,7 @@ const registerUser = async (req, res) => {
         const newUser = new Users({
           username: username,
           password: encryptedPassword,
+          avatar: `images/001-user.png`,
         });
         //Save new User
         await newUser.save();
@@ -58,11 +59,19 @@ if (!compareSync(password, user.password)) {
       "secret"
     );
     //4
-    res.json({ status: "ok", user: `Bearer ${token}`, username: user.username });
+    res.json({ status: "ok", user: `Bearer ${token}`, username: user.username,avatar: user.avatar });
   } else {
     res.json({ status: "bad" });
   }
   
+};
+const getUsers = async (req, res) => {
+  const user = await Users.findById(req.user.id)
+  console.log(user.avatar)
+  res.send({ user: user.avatar })
+};
+const UpdateAvatar = async (req, res) => {
+  res.send("UpdateAvatar");
 };
 
 const logoutUser = async (req, res) => {
@@ -73,4 +82,6 @@ module.exports = {
   registerUser,
   logInUser,
   logoutUser,
+  UpdateAvatar,
+  getUsers,
 };

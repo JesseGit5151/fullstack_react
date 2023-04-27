@@ -5,6 +5,7 @@ import jwt from 'jwt-decode'
 import Navbar from "./Navbar";
 import AddPost from "./AddPost";
 import Post from './Post'
+import styles from '../assets/styles/Posts.module.css';
 
 const Posts = () => {
   const [data, setData] = useState("");
@@ -12,20 +13,22 @@ const Posts = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log()
     //get query string
     setSearchInput(e.target.value);
   };
-  const searchFilter = async() => {
-    const response = await fetch(`http://localhost:3000/posts?query=${searchInput}`, {
+
+  const handleKeyDown = async (event) => {
+    if (event.key === 'Enter') {
+      const response = await fetch(`http://localhost:3000/posts?query=${searchInput}`, {
           headers: {
             'Authorization': localStorage.getItem('token'),
           },
         });
         const data = await response.json();
-        console.log(data)
+        
         setData(data)
-  }
+    }
+  };
 
 
   const navigate = useNavigate();
@@ -38,7 +41,7 @@ const Posts = () => {
           },
         });
         const data = await response.json();
-        console.log(data.posts.length)
+        // console.log(data.posts.length)
         setData(data)
       } catch (error) {
         console.error('An error occurred:', error);
@@ -63,16 +66,23 @@ const Posts = () => {
   //Map through data to display
   return <div>
     <Navbar />
+    <div className={styles.searcbarContainer}>
+    <h2 className={styles.title}>Search</h2>
+    <span className={styles.span}>All your favorites in one place!</span>
     <input
+    className={styles.searcbar}
         type="text"
-        placeholder="Search here"
+        placeholder="Search your favorites"
         onChange={handleChange}
         value={searchInput}
+        onKeyDown={handleKeyDown}
       />
-      <button onClick={searchFilter}>Search</button>
+    </div>
+    
+      {/* <button onClick={searchFilter}>Search</button> */}
       <AddPost/>
     {data.posts?.length >= 1 ? (
-      <div className="container">
+      <div className={styles.main}>
         {data.posts.map((item, index) => {
           return <Post key={index} item={item} getData={getData} />
         })}

@@ -21,11 +21,11 @@ const Post = ({ item, getData }) => {
 
   return (
     <div>
-      <h3>
-      {item.title}
-      </h3>
-      <p>{item.description}</p>
       <img src={`http://localhost:3000/${item.image}`} style={{width:'100px', height:'100px'}} />
+      <p>
+      {item.title}
+      </p>
+      <p>{item.description}</p>
       <button onClick={handleClick}>trash</button>
     </div>
   )

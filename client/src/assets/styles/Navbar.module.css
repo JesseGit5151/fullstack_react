@@ -1,0 +1,49 @@
+.nav {
+    width: 90%;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: auto;
+}
+.nav ul {
+    list-style: none;
+    padding: 0 12px;
+}
+.nav ul li {
+    padding: .3rem;
+    cursor: pointer;
+}
+.nav ul li:hover {
+    background-color: #DDDFE4;
+    border-radius: 7px;
+}
+.nav ul li i {
+    margin-right: 12px;
+}
+
+.img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.btn {
+    cursor: pointer;
+    outline: none;
+    background-color: white;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px rgb(147, 38, 38) solid;
+}
+.btn:hover {
+    background-color: rgb(147, 38, 38);
+    color: whitesmoke;
+}
+.dropDown {
+    position: absolute;
+    top: 4rem;
+    border: 1px solid lightgray;
+    border-radius: 7px;
+}

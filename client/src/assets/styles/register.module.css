@@ -4,6 +4,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    background: rgb(246,246,246);
 }
 .container {
     display: flex;
@@ -16,20 +17,20 @@ h1 {
     margin-bottom: 10%;
     text-align: center;
 }
-form {
+.form {
     display: flex;
     flex-direction: column;
     width: 370px;
     margin: auto;
 }
-form span {
+.form span {
     margin-top: 4%;
     text-align: center;
 }
-form label {
+.form label {
     font-weight: 300;
 }
-form input {
+.form input {
     border: 1px solid lightgray;
     border-left: 0;
     border-right: 0;
@@ -38,8 +39,9 @@ form input {
     outline: none;
     height: 30px;
     font-size: .9rem;
+    background: rgb(246,246,246);
 }
-form button {
+.form button {
     border-style: none;
     cursor: pointer;
     color: white;
@@ -57,7 +59,7 @@ div.regHeroImage {
     font-size: 20px;
     color: white;
     height: inherit;
-    background-image: url('../imgs/pexels-anni-roenkae-3435272.jpg');
+    background-image: url('../imgs/pexels-gdtography-950241.jpg');
     background-position: center;
     background-size: cover;
     width: 60%;
@@ -68,6 +70,7 @@ div.regHeroImage p {
     top: 35%;
     left: 21%;
     font-size: 70px;
+    -webkit-text-stroke: .2px black;
 }
 @media screen and (max-width: 768px) {
     .container {
@@ -77,23 +80,17 @@ div.regHeroImage p {
         height: 100vh;
         flex-direction: column-reverse;
     }
-    form {
+    .form {
         margin-top: 10%;
     }
     div.regHeroImage {
-        position:relative;
-        font-size: 20px;
-        color: white;
         height: 10vh;
-        background-image: url('../imgs/pexels-anni-roenkae-3435272.jpg');
-        background-position: center;
-        background-size: cover;
         width: 100%;
         border-radius: 0px 0px 0px 36px;
     }
     div.regHeroImage p {
         position: absolute;
-        
+        -webkit-text-stroke: .5px black;
         top: 5%;
         left: 5%;
         font-size: 24px;

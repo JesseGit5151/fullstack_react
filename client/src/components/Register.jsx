@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate  } from "react-router-dom";
-import '../assets/styles/registerstyles.css';
+import styles from '../assets/styles/register.module.css';
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -34,8 +34,8 @@ const Register = () => {
   };
 
   return (
-    <div className="registerContainer">
-      <form onSubmit={handleSubmit}>
+    <div className={styles.container}>
+      <form className={styles.form} onSubmit={handleSubmit}>
       <h1>Create an account</h1>
         <input type="text" name="username" value={username} onChange={(e) => {
             setUsername(e.target.value)
@@ -49,7 +49,7 @@ const Register = () => {
       </span>
       </form>
 
-      <div className="regHeroImage"><p>"Connecting the world, one post at a time"</p></div>
+      <div className={styles.regHeroImage}><p>"Connecting the world, one post at a time"</p></div>
     </div>
   );
 };
