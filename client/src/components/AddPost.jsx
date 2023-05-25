@@ -2,7 +2,7 @@ import React from "react"
 import { useState } from "react"
 import Modal from "@material-ui/core/Modal"
 
-const AddPost = () => {
+const AddPost = ({ onAddPost }) => {
   const [open, setOpen] = useState(false)
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
@@ -22,12 +22,11 @@ const AddPost = () => {
   }
 
   const handleSubmit = async (e) => {
-    //e.preventDefault()
+    e.preventDefault()
     const userFormData = new FormData()
     userFormData.append('title', title)
     userFormData.append('description', description)
     userFormData.append('image', image)
-    console.log(userFormData)
     let postData = await fetch(`http://localhost:3000/posts`, {
       method: "POST",
       crossDomain: true,
@@ -37,29 +36,32 @@ const AddPost = () => {
       },
       body: userFormData,
     })
-    console.log(postData)
     let result = await postData.json()
     console.log(result)
+    onAddPost(result)
+    setTitle('')
+    setDescription('')
+    setImage('')
+    handleClose()
   }
   return (
     <div>
       <button type="button" onClick={handleOpen} style={{border:`none`, backgroundColor:`transparent`, cursor:`pointer`, position:`absolute`, right:`5%`}}>
-      <i className="fa fa-plus-circle" style={{fontSize: `36px`}}></i>Enter new
+      <i className="fa fa-plus-square" style={{fontSize: `36px`}}></i>Enter new
       </button>
       <Modal
         onClose={handleClose}
         open={open}
         style={{
           position: "absolute",
-          border: "2px solid #000",
           backgroundColor: `rgba(0, 0, 0, 0.7)`,
           boxShadow: "2px solid black",
-          height: 80,
-          width: 240,
+          height: "50vh",
+          width: "80vw",
           margin: "auto",
         }}
       >
-        <div style={{ backgroundColor: "red" }}>
+        <div style={{ backgroundColor: `white`,width: "inherit", height: "inherit" }}>
           <h1>Add Post</h1>
           <form onSubmit={handleSubmit}>
             <label>

@@ -3,12 +3,12 @@ import { useNavigate  } from "react-router-dom";
 import { useEffect } from "react";
 import jwt from 'jwt-decode'
 import Navbar from "./Navbar";
-import AddPost from "./AddPost";
 import Post from './Post'
 import styles from '../assets/styles/Posts.module.css';
 
-const Posts = () => {
-  const [data, setData] = useState("");
+const Posts = ({ data, getData, onDeletePost }) => {
+  
+  // const [data, setData] = useState("");
   const [searchInput, setSearchInput] = useState("")
 
   const handleChange = (e) => {
@@ -16,6 +16,11 @@ const Posts = () => {
     //get query string
     setSearchInput(e.target.value);
   };
+
+  const handleDeletePost = (postId) => {
+    console.log(postId)
+    onDeletePost(postId)
+  }
 
   const handleKeyDown = async (event) => {
     if (event.key === 'Enter') {
@@ -26,27 +31,12 @@ const Posts = () => {
         });
         const data = await response.json();
         
-        setData(data)
+        // setData(data)
     }
   };
 
 
   const navigate = useNavigate();
-  //fetch data from /posts route
-    async function getData() {
-      try {
-        const response = await fetch(`http://localhost:3000/posts`, {
-          headers: {
-            'Authorization': localStorage.getItem('token'),
-          },
-        });
-        const data = await response.json();
-        // console.log(data.posts.length)
-        setData(data)
-      } catch (error) {
-        console.error('An error occurred:', error);
-      }
-    };
 //UseEffect to call fetch function on page load
   useEffect(() => {
 
@@ -58,6 +48,7 @@ const Posts = () => {
         navigate('auth/login')
       } else{
         console.log('success')
+        
         getData()
       }
     }
@@ -80,11 +71,11 @@ const Posts = () => {
     </div>
     
       {/* <button onClick={searchFilter}>Search</button> */}
-      <AddPost/>
-    {data.posts?.length >= 1 ? (
+      {/* <AddPost/> */}
+    {data.length >= 1 ? (
       <div className={styles.main}>
-        {data.posts.map((item, index) => {
-          return <Post key={index} item={item} getData={getData} />
+        {data.map((item, index) => {
+          return <Post key={index} item={item} onDeletePost={handleDeletePost}/>
         })}
       </div>
     ) : (

@@ -21,6 +21,9 @@
 .nav ul li i {
     margin-right: 12px;
 }
+.p {
+    padding-right: 12px;
+}
 
 .img {
     width: 50px;

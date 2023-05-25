@@ -1,8 +1,11 @@
 const Users = require("../models/users");
 const Post = require("../models/Posts");
 const { hashSync, compareSync } = require('bcrypt');
-
+const multer = require("multer")
 const jwt = require('jsonwebtoken')
+const mongoose = require("mongoose")
+
+
 const registerUser = async (req, res) => {
   //get user form information
   let { username, password } = req.body;
@@ -19,7 +22,7 @@ const registerUser = async (req, res) => {
         const newUser = new Users({
           username: username,
           password: encryptedPassword,
-          avatar: `images/001-user.png`,
+          avatar: `userImages/001-user.png`,
         });
         //Save new User
         await newUser.save();
@@ -67,12 +70,31 @@ if (!compareSync(password, user.password)) {
 };
 const getUsers = async (req, res) => {
   const user = await Users.findById(req.user.id)
-  console.log(user.avatar)
-  res.send({ user: user.avatar })
+  console.log(user)
+  res.send({ user: user.avatar, name: user.username })
 };
 const UpdateAvatar = async (req, res) => {
-  res.send("UpdateAvatar");
+  console.log(req.user.id)
+  try {
+    if (!req.file) {
+      console.log('dfdf')
+      return res.status(400).send('No file uploaded.');
+    }
+    const imagePath = req.file.filename
+    console.log(`userImages/${imagePath}`)
+    const updatedUser = await Users.findByIdAndUpdate(
+      req.user.id,
+      { $set: { avatar: `userImages/${imagePath}` } },
+      { new: true }
+    )
+    
+    res.send(updatedUser);
+  } catch (error) {
+    console.log(error)
+  }
+
 };
+
 
 const logoutUser = async (req, res) => {
   res.send("logoutUser");

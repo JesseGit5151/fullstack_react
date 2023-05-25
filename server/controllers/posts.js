@@ -72,8 +72,8 @@ module.exports.createPost = async (req, res) => {
           console.log(userWithFavorites)
         }
       })
-    //console.log(user)
-    res.send({ message: "create" })
+    
+    res.send(newPost)
   } catch (error) {
     console.log(error)
   }
@@ -85,8 +85,8 @@ module.exports.deletePost = async (req, res) => {
 
   Post.findByIdAndRemove(id).exec((error, deletedItem) => {
     if (error) {
-      res.send(error);
+      console.log(error);
     }
-    return res.json(deletedItem);
+    return res.send(deletedItem);
   });
 }

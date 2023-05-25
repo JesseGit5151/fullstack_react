@@ -1,21 +1,8 @@
 import React from 'react'
 
-const Post = ({ item, getData }) => {
+const Post = ({ item, onDeletePost }) => {
   const handleClick = async () => {
-    const response = await fetch(`http://localhost:3000/posts/${item._id}`, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': localStorage.getItem('token'),
-      },
-    })
-    console.log(response)
-    const json = await response.json()
-    if(response.ok) {
-      console.log(json)
-      getData()
-    }else {
-      console.log('error')
-    }
+    onDeletePost(item._id);
   }
 
 
