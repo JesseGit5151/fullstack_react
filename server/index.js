@@ -23,6 +23,10 @@ app.use(passport.initialize())
 require("./config/passport")
 const PORT = process.env.PORT
 
+app.get('/', (req, res) => {
+  res.send('api is running')
+})
+
 // Assuming you have an express middleware to verify JWTs and add the user data to the request object
 app.use((req, res, next) => {
   // Verify the JWT and add the user data to the request object
