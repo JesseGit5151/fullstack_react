@@ -61,10 +61,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Register />} />
-        <Route path="/auth/login" element={<Login />} />
+        <Route path="https://yourfavorites.onrender.com/" element={<Register />} />
+        <Route path="https://yourfavorites.onrender.com/auth/login" element={<Login />} />
         <Route 
-          path="/posts"
+          path="https://yourfavorites.onrender.com/posts"
           element={
             <ProtectedRoute>
               <Navbar />
