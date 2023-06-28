@@ -24,6 +24,7 @@ require("./config/passport")
 const PORT = process.env.PORT
 
 app.get('/', (req, res) => {
+  res.setHeader("Access-Control-Allow-Credetials", "true")
   res.send('api is running')
 })
 
