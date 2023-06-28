@@ -14,7 +14,8 @@ const registerUser = async (req, res) => {
     Users.findOne({ username: username }, async function (err, result) {
       if (err) throw err;
       if (result) {
-        console.log(`User already exists. Please pick a different name.`);
+        const alreadyExist = `User already exists. Please pick a different name.`
+        res.send({ alreadyExist })
       } else {
         //encrypt password[ TODO ]
         const encryptedPassword = hashSync(password, 10);

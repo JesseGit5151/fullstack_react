@@ -4,7 +4,6 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background: rgb(246,246,246);
 }
 .container {
     display: flex;
@@ -12,10 +11,14 @@ body {
     align-items: center;
     height: 100vh;
 }
-h1 {
+.h1 {
     color: #1C1F24;
     margin-bottom: 10%;
     text-align: center;
+}
+.error {
+    color: red;
+    font-size: smaller;
 }
 .form {
     display: flex;

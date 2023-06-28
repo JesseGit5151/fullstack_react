@@ -11,7 +11,7 @@ const cors = require("cors")
 const app = express()
 app.use(express.json())
 //Setup Mongodb
-const db = require("./config/database")
+require("./config/database")
 //Tell app what to use
 app.use("/images", express.static("images"));
 app.use("/userImages", express.static("userImages"));

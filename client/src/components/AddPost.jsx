@@ -1,12 +1,20 @@
 import React from "react"
 import { useState } from "react"
 import Modal from "@material-ui/core/Modal"
+import { FaPlus, FaRegCheckCircle } from "react-icons/fa"
+import styles from "../assets/styles/addPost.module.css"
 
 const AddPost = ({ onAddPost }) => {
   const [open, setOpen] = useState(false)
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [image, setImage] = useState(null)
+  const [success, setSuccess] = useState(false)
+
+  const clearSuccessMessage = () => {
+    setSuccess(false)
+  }
+
   const handleClose = () => {
     setOpen(false)
   }
@@ -24,9 +32,9 @@ const AddPost = ({ onAddPost }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const userFormData = new FormData()
-    userFormData.append('title', title)
-    userFormData.append('description', description)
-    userFormData.append('image', image)
+    userFormData.append("title", title)
+    userFormData.append("description", description)
+    userFormData.append("image", image)
     let postData = await fetch(`http://localhost:3000/posts`, {
       method: "POST",
       crossDomain: true,
@@ -38,64 +46,67 @@ const AddPost = ({ onAddPost }) => {
     })
     let result = await postData.json()
     console.log(result)
-    onAddPost(result)
-    setTitle('')
-    setDescription('')
-    setImage('')
-    handleClose()
+
+    if (result) {
+      onAddPost(result)
+      setTitle("")
+      setDescription("")
+      setImage("")
+      handleClose()
+      setSuccess(true)
+      setTimeout(clearSuccessMessage, 3000)
+    }
   }
   return (
     <div>
-      <button type="button" onClick={handleOpen} style={{border:`none`, backgroundColor:`transparent`, cursor:`pointer`, position:`absolute`, right:`5%`}}>
-      <i className="fa fa-plus-square" style={{fontSize: `36px`}}></i>Enter new
-      </button>
-      <Modal
-        onClose={handleClose}
-        open={open}
-        style={{
-          position: "absolute",
-          backgroundColor: `rgba(0, 0, 0, 0.7)`,
-          boxShadow: "2px solid black",
-          height: "50vh",
-          width: "80vw",
-          margin: "auto",
-        }}
-      >
-        <div style={{ backgroundColor: `white`,width: "inherit", height: "inherit" }}>
-          <h1>Add Post</h1>
-          <form onSubmit={handleSubmit}>
-            <label>
-              Title:
+      {success && (
+        <>
+          <FaRegCheckCircle className={styles.success} />
+          <div className={styles.successtext}>Successfully Added!</div>
+        </>
+      )}
+      <FaPlus className={styles.add} onClick={handleOpen} />
+
+      <Modal onClose={handleClose} open={open} className={styles.modal}>
+        <div className={styles.inner}>
+          <h1 className={styles.h1}>Add Post</h1>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <label htmlFor="title">Title:</label>
+            <input
+            placeholder="Entry name..."
+            className={styles.title}
+              id="title"
+              type="text"
+              value={title}
+              onChange={(e) => {
+                setTitle(e.target.value)
+              }}
+              required
+            />
+
+            <label htmlFor="description">Description:</label>
+            <textarea
+            placeholder="Describe your new entry.."
+            className={styles.desc}
+              id="description"
+              name="description"
+              value={description}
+              onChange={(e) => {
+                setDescription(e.target.value)
+              }}
+              required
+            />
+
+            <label htmlFor="image">Image:</label>
               <input
-                type="text"
-                value={title}
-                onChange={(e) => {
-                  setTitle(e.target.value)
-                }}
-                required
-              />
-            </label>
-            <label>
-              Description:
-              <input
-                type="text"
-                value={description}
-                onChange={(e) => {
-                  setDescription(e.target.value)
-                }}
-                required
-              />
-            </label>
-            <label htmlFor="image">
-              Image:
-              <input
+              className={styles.fileUpload}
+                id="image"
                 type="file"
                 name="image"
                 onChange={handleImageChange}
                 required
               />
-            </label>
-            <button type="submit">Add</button>
+            <button className={styles.btn} type="submit">Add</button>
           </form>
         </div>
       </Modal>

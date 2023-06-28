@@ -17,6 +17,7 @@
 .nav ul li:hover {
     background-color: #DDDFE4;
     border-radius: 7px;
+    
 }
 .nav ul li i {
     margin-right: 12px;
@@ -26,22 +27,25 @@
 }
 
 .img {
+    object-fit: cover;
     width: 50px;
     height: 50px;
     border-radius: 50px;
     cursor: pointer;
 }
 .btn {
+    width: 71px;
+    margin-left: auto;
+    background-color: #237BE7;
+    margin-top: 1rem;
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    outline: none;
-    background-color: white;
-    text-align: center;
-    padding: 10px 15px;
-    border-radius: 10px;
-    border: 1px rgb(147, 38, 38) solid;
+    color: white;
 }
 .btn:hover {
-    background-color: rgb(147, 38, 38);
+    background-color: #1356a6;
     color: whitesmoke;
 }
 .dropDown {
@@ -49,4 +53,32 @@
     top: 4rem;
     border: 1px solid lightgray;
     border-radius: 7px;
+}
+/* MODAL */
+.modal {
+    position: absolute;
+    z-index: 1300;
+    inset: 0px;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    height: 180px;
+    max-width: 444px;
+    margin: auto;
+}
+.inner {
+    background-color: white;
+    border-radius: 12px;
+    height: inherit;
+    overflow: hidden;
+    outline: none;
+}
+.h1 {
+    text-align: left;
+    margin-left: 2rem;
+}
+.form {
+    width: 87%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
 }

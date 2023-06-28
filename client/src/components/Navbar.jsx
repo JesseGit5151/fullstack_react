@@ -24,7 +24,6 @@ const Navbar = () => {
     setOpen(false)
   }
 
-
   async function fetchUser() {
     try {
       const response = await fetch(`http://localhost:3000/auth/users`, {
@@ -75,7 +74,7 @@ const Navbar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const avatarFormData = new FormData()
-    avatarFormData.append('avatar', image)
+    avatarFormData.append("avatar", image)
     console.log(avatarFormData)
     try {
       let postData = await fetch(`http://localhost:3000/auth/avatar`, {
@@ -88,7 +87,7 @@ const Navbar = () => {
       })
       console.log(postData)
       if (!postData.ok) {
-        throw new Error(`HTTP error! status: ${postData.status}`);
+        throw new Error(`HTTP error! status: ${postData.status}`)
       }
 
       handleClose()
@@ -100,16 +99,18 @@ const Navbar = () => {
         user: result.avatar,
       }))
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
-
+  
   return (
     <nav className={styles.nav}>
+      {user && (
+        <p className={styles.p}>Welcome Back, {user.name.split(" ")[0]}!</p>
+      )}
 
-      <p className={styles.p}>Welcome Back, {user.name}</p>
       <img
-      id="lo"
+        id="lo"
         className={styles.img}
         src={`http://localhost:3000/${user.user}`}
         alt="avatar"
@@ -119,38 +120,32 @@ const Navbar = () => {
         <div className={styles.dropDown}>
           <ul>
             <li onClick={changeAvatar}>
-              <i className="fas fa-images"></i>change avatar
+              <i className="fas fa-images"></i>Update avatar
             </li>
             <Modal
-              BackdropProps={{
-                style: {
-                  backdropFilter: `blur(9px)`,
-                },
-              }}
+              // BackdropProps={{
+              //   style: {
+              //     backdropFilter: `blur(9px)`,
+              //   },
+              // }}
+              className={styles.modal}
               onClose={handleClose}
               open={open}
-              style={{
-                position: "absolute",
-                border: "2px solid #000",
-                backgroundColor: `rgba(0, 0, 0, 0.7)`,
-                boxShadow: "2px solid black",
-                height: 80,
-                margin: "auto",
-              }}
             >
-              <div style={{ backgroundColor: "white", borderRadius: `7px`, width: `50%`, margin: `auto` }}>
-                <h1>Add Avatar</h1>
-                <form onSubmit={handleSubmit}>
-                  <label htmlFor="avatar">
-                    Image:
+              <div
+                className={styles.inner}
+              >
+                <h1 className={styles.h1}>Update Avatar</h1>
+                <form className={styles.form} onSubmit={handleSubmit}>
+                  <label htmlFor="avatar">Image:</label>
                     <input
+                      id="avatar"
                       type="file"
                       name="avatar"
                       onChange={handleImageChange}
                       required
                     />
-                  </label>
-                  <button type="submit">Add</button>
+                  <button className={styles.btn} type="submit">Add</button>
                 </form>
               </div>
             </Modal>

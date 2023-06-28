@@ -1,0 +1,25 @@
+.container {
+    width: 286px;
+    border-radius: 10px;
+    position: relative;
+}
+.image {
+    width: inherit;
+    object-fit: cover;
+    height: 300px;
+    border-radius: inherit;
+}
+.title {
+    font-weight: 700;
+}
+.p {
+    color: darkgrey;
+}
+.deletebutton {
+    font-size: 20px;
+    color: red;
+    position: absolute;
+    right: 0.2rem;
+    bottom: 4rem;
+    cursor: pointer;
+}

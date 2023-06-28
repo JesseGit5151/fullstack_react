@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import { useNavigate  } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styles from '../assets/styles/login.module.css';
-
+import image from '../assets/imgs/icons8-hide-password-50.png'
+import eye from '../assets/imgs/icons8-eye-32.png'
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isRevealPwd, setIsRevealPwd] = useState(false);
 
   const navigate = useNavigate();
 //2
@@ -38,23 +40,31 @@ const Login = () => {
       console.log(result);
   }
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-      <h1>Welcome Back</h1>
+    <div className={styles.container}>
+      <form className={styles.form} onSubmit={handleSubmit}>
+      <h1 className={styles.h1}>Welcome Back</h1>
         
           <input type="text" value={username} onChange={(e) => {
             setUsername(e.target.value)}} placeholder='Username' required />
         
         
-          <input type="text" value={password} onChange={(e) => {
+          <input type={isRevealPwd ? "text" : "password"} value={password} onChange={(e) => {
             setPassword(e.target.value)}} placeholder='Password' required />
+          <img
+          className={styles.eye}
+          title={isRevealPwd ? "Hide password" : "Show password"}
+          src={isRevealPwd ? image : eye}
+          onClick={() => setIsRevealPwd(prevState => !prevState)}
+        />
         
         <button type="submit">LogIn</button>
         <span>
         Don't have an account?<Link to="/">Sign up</Link>
       </span>
       </form>
-    </>
+
+      <div className={styles.regHeroImage}><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit!</p></div>
+    </div>
   )
 }
 

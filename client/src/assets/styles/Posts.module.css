@@ -1,35 +1,9 @@
-.searcbar {
-    width: inherit;
-    padding: 10px 5px;
-    background-color: rgb(239,239,239);
-    border: 1px rgb(229,229,229) solid;
-    border-radius: 10px;
-    outline: none;
-}
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: rgb(191,191,191);
-    opacity: 1; /* Firefox */
-  }
-  input {
-    color: black;
-  }
-.title {
-    font-size: 4rem;
-    margin-bottom: 2rem;
-}
-.searcbarContainer {
-    width: 90%;
-    margin: auto;
-    margin-bottom: 3%;
-}
-.span {
-    font-size: .83rem;
-    color: rgb(191,191,191);
-}
+
 .main {
     width: 90%;
     margin: auto;
     display: flex;
-    gap: 10%;
+    gap: 30px;
     flex-wrap: wrap;
+    justify-content: center;
 }

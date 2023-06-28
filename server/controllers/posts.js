@@ -18,13 +18,15 @@ module.exports.getPosts = async (req, res) => {
   //search the favorites[posts]
   const { query } = req.query
   if (query) {
+    console.log(query);
     //find category by query by filtering posts with the query
     posts = posts.filter((item) => {
-      return item.title === query
+      return item.title.toLowerCase() === query.toLowerCase()
     })
     res.send({ posts })
   } else {
     //Find all categories
+    console.log(query);
     res.send({ posts })
   }
 }
@@ -51,8 +53,10 @@ module.exports.createPost = async (req, res) => {
     //Create Post then save
     //console.log(user)
     const { title, description } = req.body
+    //Capitalize title before saving to database
+    const uppercaseTitle = title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())
     const newPost = new Post({
-      title: title,
+      title: uppercaseTitle,
       description: description,
       image: `images/${req.file.filename}`,
       author: req.user.id,

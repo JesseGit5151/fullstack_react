@@ -1,0 +1,97 @@
+.add {
+    cursor: pointer;
+    position: fixed;
+    right: 2rem;
+    font-size: xx-large;
+    top: 9rem;
+}
+.success {
+    position: fixed;
+    right: 4rem;
+    font-size: xx-large;
+    color: green;
+    top: 6rem;
+    border: 2px solid green;
+    border-radius: 23px;
+}
+.successtext {
+    position: fixed;
+    top: 6.5rem;
+    right: 7.5rem;
+    color: green;
+}
+.modal {
+    position: absolute;
+    z-index: 1300;
+    inset: 0px;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    height: 318px;
+    max-width: 444px;
+    margin: auto;
+}
+.inner {
+    background-color: white;
+    border-radius: 12px;
+    height: inherit;
+    overflow: hidden;
+    outline: none;
+}
+.h1 {
+    text-align: left;
+    margin-left: 2rem;
+}
+.form {
+    width: 87%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.title {
+    width: 50%;
+    border-radius: 6px;
+    padding: 4px 3px;
+    outline: none;
+    border: 1px rgb(229,229,229) solid;
+    margin-bottom: 10px;
+}
+.desc {
+    font-family: 'Roboto', sans-serif;
+    border-radius: 6px;
+    padding: 4px 3px;
+    outline: none;
+    border: 1px rgb(229,229,229) solid;
+    resize: none;
+    height: 50px;
+}
+input::file-selector-button {
+    /* margin-top: 10px; */
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 4px 3px;
+    outline: none;
+    border: 1px rgb(229,229,229) solid;
+    cursor: pointer;
+}
+input::file-selector-button:hover {
+    background-color: #DDDFE4;
+}
+label {
+    font-weight: bolder;
+    font-size: smaller;
+    margin-bottom: 3px;
+}
+.btn {
+    width: 71px;
+    margin-left: auto;
+    background-color: #1864c0;
+    margin-top: 1rem;
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+.btn:hover {
+    background-color: #1356a6;
+}

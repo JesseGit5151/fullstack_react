@@ -5,14 +5,22 @@ import Register from "./components/Register";
 import Posts from "./components/Posts";
 import AddPost from "./components/AddPost";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Searchbar from "./components/Searchbar";
+import Navbar from "./components/Navbar";
 
-
+//Search bar does not fetch anything - it just sets the query state - which is passed in to Posts as a prop
+//refactor the getdata function so that it takes in a parameter(query)
 
 function App() {
   const [data, setData] = useState([]);
 
+  const handleSearch = (query) => {
+    getData(query)
+  };
+  
+//TODO:setSuccess and pass down to this function
   const handleAddPost = (newData) => {
-     console.log(data)
+     
     // Once successful, update the local state with the new post
     setData([...data, newData])
 
@@ -35,9 +43,10 @@ function App() {
     }
   };
   //fetch data from /posts route
-  async function getData() {
+  async function getData(query = "") {
     try {
-      const response = await fetch(`http://localhost:3000/posts`, {
+      console.log(query)
+      const response = await fetch(`http://localhost:3000/posts?query=${query}`, {
         headers: {
           'Authorization': localStorage.getItem('token'),
         },
@@ -58,7 +67,10 @@ function App() {
           path="/posts"
           element={
             <ProtectedRoute>
-            <Posts data={data} getData={getData} onDeletePost={handleDeletePost}/>
+              <Navbar />
+              <Searchbar onSearch={handleSearch}/>
+            <Posts
+             data={data} getData={getData} onDeletePost={handleDeletePost}/>
             <AddPost onAddPost={handleAddPost} />
           </ProtectedRoute>
           } 
