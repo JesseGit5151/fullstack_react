@@ -26,7 +26,7 @@ const Navbar = () => {
 
   async function fetchUser() {
     try {
-      const response = await fetch(`http://localhost:3000/auth/users`, {
+      const response = await fetch(`https://yourfavorites-api.onrender.com/auth/users`, {
         headers: {
           Authorization: localStorage.getItem("token"),
         },
@@ -77,7 +77,7 @@ const Navbar = () => {
     avatarFormData.append("avatar", image)
     console.log(avatarFormData)
     try {
-      let postData = await fetch(`http://localhost:3000/auth/avatar`, {
+      let postData = await fetch(`https://yourfavorites-api.onrender.com/auth/avatar`, {
         method: "POST",
         crossDomain: true,
         headers: {
@@ -112,7 +112,7 @@ const Navbar = () => {
       <img
         id="lo"
         className={styles.img}
-        src={`http://localhost:3000/${user.user}`}
+        src={`https://yourfavorites-api.onrender.com/${user.user}`}
         alt="avatar"
         onClick={handleClick}
       />
