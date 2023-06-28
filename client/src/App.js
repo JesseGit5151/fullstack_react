@@ -28,7 +28,7 @@ function App() {
 
   const handleDeletePost = async (postId) => {
     try {
-      await fetch(`http://localhost:3000/posts/${postId}`, {
+      await fetch(`https://yourfavorites-api.onrender.com/posts/${postId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': localStorage.getItem('token'),
@@ -46,7 +46,7 @@ function App() {
   async function getData(query = "") {
     try {
       console.log(query)
-      const response = await fetch(`http://localhost:3000/posts?query=${query}`, {
+      const response = await fetch(`https://yourfavorites-api.onrender.com/posts?query=${query}`, {
         headers: {
           'Authorization': localStorage.getItem('token'),
         },
