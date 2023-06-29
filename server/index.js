@@ -5,6 +5,7 @@ const bodyParser = require("body-parser")
 const postRoutes = require("./routes/posts")
 const authRoutes = require("./routes/auth")
 const jwt = require("jsonwebtoken")
+const path = require('path');
 const passport = require("passport")
 const cors = require("cors")
 
@@ -22,11 +23,10 @@ app.use(passport.initialize())
 
 require("./config/passport")
 const PORT = process.env.PORT
-
-app.get('/', (req, res) => {
-  res.setHeader("Access-Control-Allow-Credetials", "true")
-  res.send('api is running')
-})
+app.use(express.static(path.join(__dirname, 'build')));
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 // Assuming you have an express middleware to verify JWTs and add the user data to the request object
 app.use((req, res, next) => {
