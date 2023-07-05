@@ -46,7 +46,7 @@ function App() {
   async function getData(query = "") {
     try {
       console.log(query)
-      const response = await fetch(`https://yourfavorites-api.onrender.com/posts?query=${query}`, {
+      const response = await fetch(`/posts?query=${query}`, {
         headers: {
           'Authorization': localStorage.getItem('token'),
         },
