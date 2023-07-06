@@ -49,9 +49,6 @@ function App() {
       const response = await fetch(`https://yourfavorites-api.onrender.com/posts?query=${query}`, {
         headers: {
           'Authorization': localStorage.getItem('token'),
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Access-Control-Allow-Origin": "*",
         },
       });
       const data = await response.json();
