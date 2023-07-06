@@ -29,7 +29,11 @@ require("./config/passport")
 const PORT = process.env.PORT
 app.use(express.static(path.join(__dirname, 'build')));
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 // Assuming you have an express middleware to verify JWTs and add the user data to the request object
 app.use((req, res, next) => {
   // Verify the JWT and add the user data to the request object
