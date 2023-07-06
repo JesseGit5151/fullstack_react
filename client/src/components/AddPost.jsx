@@ -43,6 +43,7 @@ const AddPost = ({ onAddPost }) => {
         "Content-Type": "application/json",
           Accept: "application/json",
           "Access-Control-Allow-Origin": "*",
+          credentials: "include"
       },
       body: userFormData,
     })
