@@ -18,7 +18,7 @@ module.exports.getPosts = async (req, res) => {
   //search the favorites[posts]
   const { query } = req.query
   if (query) {
-    console.log(query);
+    
     //find category by query by filtering posts with the query
     posts = posts.filter((item) => {
       return item.title.toLowerCase() === query.toLowerCase()
@@ -26,7 +26,7 @@ module.exports.getPosts = async (req, res) => {
     res.send({ posts })
   } else {
     //Find all categories
-    console.log(query);
+    
     res.send({ posts })
   }
 }
@@ -73,7 +73,7 @@ module.exports.createPost = async (req, res) => {
         if (err) {
           console.log(err)
         } else {
-          console.log(userWithFavorites)
+          console.log("userWithFavorites")
         }
       })
     

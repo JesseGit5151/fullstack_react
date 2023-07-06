@@ -20,6 +20,7 @@ app.use(bodyParser.json({limit: '10mb'}))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors({
   origin: "*",
+  credentials: true,
 }))
 app.use(passport.initialize())
 
