@@ -25,14 +25,7 @@ require("./config/passport")
 const PORT = process.env.PORT
 app.use(express.static(path.join(__dirname, 'build')));
 
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*'); // Set the allowed origin(s) here
-//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Set the allowed HTTP methods
-//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'); // Set the allowed headers
 
-//   // Continue to the next middleware
-//   next();
-// });
 // Assuming you have an express middleware to verify JWTs and add the user data to the request object
 app.use((req, res, next) => {
   // Verify the JWT and add the user data to the request object
@@ -52,7 +45,14 @@ app.use((req, res, next) => {
   }
   next()
 })
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*'); // Set the allowed origin(s) here
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE'); // Set the allowed HTTP methods
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept'); // Set the allowed headers
 
+  // Continue to the next middleware
+  next();
+});
 //Routes
 app.use("/auth", authRoutes)
 app.use("/posts", postRoutes)
