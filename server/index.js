@@ -19,7 +19,7 @@ app.use("/userImages", express.static("userImages"));
 app.use(bodyParser.json({limit: '10mb'}))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors({
-  origin: "https://yourfavorites-api.onrender.com",
+  origin: "https://mellifluous-treacle-79c90e.netlify.app",
 }))
 app.use(passport.initialize())
 
