@@ -36,6 +36,7 @@ const AddPost = ({ onAddPost }) => {
     userFormData.append("description", description)
     userFormData.append("image", image)
     let postData = await fetch(`https://yourfavorites-api.onrender.com/posts`, {
+      crossDomain: true,
       method: "POST",
       headers: {
         Authorization: localStorage.getItem("token"),
