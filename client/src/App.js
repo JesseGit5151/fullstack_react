@@ -47,6 +47,7 @@ function App() {
     try {
       console.log(query)
       const response = await fetch(`https://yourfavorites-api.onrender.com/posts?query=${query}`, {
+        crossDomain: true,
         headers: {
           'Authorization': localStorage.getItem('token'),
         },
