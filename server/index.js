@@ -18,7 +18,9 @@ app.use("/images", express.static("images"));
 app.use("/userImages", express.static("userImages"));
 app.use(bodyParser.json({limit: '10mb'}))
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
-app.use(cors())
+app.use(cors({
+  origin: "https://yourfavorites-api.onrender.com",
+}))
 app.use(passport.initialize())
 
 require("./config/passport")
