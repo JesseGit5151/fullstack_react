@@ -39,6 +39,7 @@ module.exports.createPost = async (req, res) => {
         console.log(err);
       } else {
         if (req.file == undefined) {
+          console.log(req.file)
           res.status(301).send("image upload failed.");
         } else {
           //image uploaded successfully
@@ -54,9 +55,9 @@ module.exports.createPost = async (req, res) => {
     //console.log(user)
     const { title, description } = req.body
     //Capitalize title before saving to database
-    const uppercaseTitle = title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())
+    // const uppercaseTitle = title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())
     const newPost = new Post({
-      title: uppercaseTitle,
+      title: title,
       description: description,
       image: `images/${req.file.filename}`,
       author: req.user.id,
