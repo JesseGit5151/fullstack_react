@@ -35,7 +35,8 @@ const AddPost = ({ onAddPost }) => {
     userFormData.append("title", title)
     userFormData.append("description", description)
     userFormData.append("image", image)
-    let postData = await fetch(`https://yourfavorites-api.onrender.com/posts`, {
+    try {
+      let postData = await fetch(`https://yourfavorites-api.onrender.com/posts`, {
       crossDomain: true,
       method: "POST",
       headers: {
@@ -47,6 +48,7 @@ const AddPost = ({ onAddPost }) => {
       },
       body: userFormData,
     })
+    console.log(postData)
     let result = await postData.json()
     console.log(result)
 
@@ -59,6 +61,10 @@ const AddPost = ({ onAddPost }) => {
       setSuccess(true)
       setTimeout(clearSuccessMessage, 3000)
     }
+    } catch (error) {
+      console.error(error)
+    }
+    
   }
   return (
     <div>
