@@ -18,7 +18,9 @@ app.use("/images", express.static("images"));
 app.use("/userImages", express.static("userImages"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded());
-app.use(cors())
+app.use(cors({
+  origin: "*",
+}))
 app.use(passport.initialize())
 
 require("./config/passport")
