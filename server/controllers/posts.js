@@ -76,7 +76,7 @@ module.exports.createPost = async (req, res) => {
           console.log("userWithFavorites")
         }
       })
-    
+    console.log(req.body)
     res.send(newPost)
   } catch (error) {
     console.log(error)
