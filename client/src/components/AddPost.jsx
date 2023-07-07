@@ -46,7 +46,7 @@ const AddPost = ({ onAddPost }) => {
           "Access-Control-Allow-Origin": "*",
         
       },
-      body: userFormData,
+      body: JSON.stringify(userFormData),
     })
     console.log(postData)
     let result = await postData.json()
