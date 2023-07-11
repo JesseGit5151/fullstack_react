@@ -45,6 +45,7 @@ const AddPost = ({ onAddPost }) => {
       },
       body: userFormData,
     })
+    console.log(postData)
     let result = await postData.json()
     console.log(result)
 
