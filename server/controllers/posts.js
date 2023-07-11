@@ -25,11 +25,11 @@ module.exports.getPosts = async (req, res) => {
     posts = posts.filter((item) => {
       return item.title.toLowerCase() === query.toLowerCase()
     })
-    // console.log(posts);
+    console.log(posts);
     res.send(posts)
   } else {
     //Find all categories
-    
+    console.log(posts);
     res.send(posts)
   }
 }
