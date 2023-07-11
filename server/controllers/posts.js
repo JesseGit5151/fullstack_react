@@ -45,7 +45,7 @@ module.exports.createPost = async (req, res) => {
           res.status(301).send("image upload failed.");
         } else {
           //image uploaded successfully
-          console.log(req.file)
+          console.log(req.file.filename)
           // imgPath = "uploads/" + req.file.filename;
           // storeImageLink(res, imagePath);
         }
@@ -62,7 +62,7 @@ module.exports.createPost = async (req, res) => {
     const newPost = new Post({
       title: uppercaseTitle,
       description: description,
-      image: `images/${req.file}`,
+      image: `images/${req.file.filename}`,
       author: req.user.id,
     })
     
@@ -75,7 +75,7 @@ module.exports.createPost = async (req, res) => {
         if(err) {
           console.log(err)
         } else {
-          console.log(newPost)
+          
           res.send(newPost)
         }
       }
