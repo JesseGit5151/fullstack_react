@@ -23,6 +23,7 @@ console.log(data)
         localStorage.removeItem('token')
         navigate('auth/login')
       } else{
+        console.log(data)
         console.log('success')
         
         getData()
