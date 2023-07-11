@@ -23,7 +23,7 @@ const formattedDate = dateObj.toLocaleDateString("en-US", {
   return (
     <div className={styles.container}>
       
-      <img className={styles.image} src={`http://localhost:3000/${item.image}`} />
+      <img className={styles.image} src={`https://yourfavorites-api.onrender.com/${item.image}`} />
       
       <h4 className={styles.title}>
       {item.title}

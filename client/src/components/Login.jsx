@@ -13,7 +13,7 @@ const Login = () => {
 //2
   const handleSubmit = async(e) => {
     e.preventDefault()
-      let postData = await fetch(`http://localhost:3000/auth/login`, {
+      let postData = await fetch(`https://yourfavorites-api.onrender.com/auth/login`, {
         method: "POST",
         crossDomain: true,
         headers: {

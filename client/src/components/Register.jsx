@@ -12,7 +12,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let postData = await fetch(`http://localhost:3000/auth/register`, {
+      let postData = await fetch(`https://yourfavorites-api.onrender.com/auth/register`, {
         method: "POST",
         crossDomain: true,
         headers: {
