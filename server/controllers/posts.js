@@ -62,7 +62,7 @@ module.exports.createPost = async (req, res) => {
     const newPost = new Post({
       title: uppercaseTitle,
       description: description,
-      image: `images/${req.file.filename}`,
+      image: `images/${req.file}`,
       author: req.user.id,
     })
     
