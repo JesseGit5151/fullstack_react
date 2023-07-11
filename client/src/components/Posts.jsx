@@ -6,7 +6,7 @@ import Post from './Post'
 import styles from '../assets/styles/Posts.module.css';
 
 const Posts = ({ data, getData, onDeletePost }) => {
-
+console.log(data)
   const handleDeletePost = (postId) => {
     
     onDeletePost(postId)
