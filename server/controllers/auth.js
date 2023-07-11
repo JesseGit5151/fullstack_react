@@ -24,6 +24,7 @@ const registerUser = async (req, res) => {
           username: username,
           password: encryptedPassword,
           avatar: `userImages/001-user.png`,
+          favorites: []
         });
         //Save new User
         await newUser.save();

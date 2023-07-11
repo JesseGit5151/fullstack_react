@@ -52,8 +52,8 @@ function App() {
         },
       });
       const data = await response.json();
-      
-      setData(data.posts)
+      console.log(data)
+      setData(data)
     } catch (error) {
       console.error('An error occurred:', error);
     }

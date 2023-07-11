@@ -4,14 +4,12 @@ const Searchbar = ({ onSearch }) => {
   const [searchInput, setSearchInput] = useState('')
 //Just set the search query & pass as prop to Posts - don't worry about data state(Posts)
 const handleChange = (e) => {
-  console.log(e.target.value)
   //get query string
   setSearchInput(e.target.value);
 };
 
 const handleKeyPress = (event) => {
   if (event.key === "Enter") {
-    console.log(event.target)
     onSearch(searchInput);
   }
 };

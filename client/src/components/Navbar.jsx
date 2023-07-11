@@ -32,7 +32,6 @@ const Navbar = () => {
         },
       })
       const user = await response.json()
-      console.log(user)
       setUser(user)
     } catch (error) {
       console.error("An error occurred:", error)
@@ -68,14 +67,13 @@ const Navbar = () => {
   const changeAvatar = (e) => {
     //TODO:When user clicks 'change avatar', modal will pop up with form to ipdate image
     setOpen(true)
-    console.log(e.target)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const avatarFormData = new FormData()
     avatarFormData.append("avatar", image)
-    console.log(avatarFormData)
+
     try {
       let postData = await fetch(`http://localhost:3000/auth/avatar`, {
         method: "POST",
@@ -85,7 +83,6 @@ const Navbar = () => {
         },
         body: avatarFormData,
       })
-      console.log(postData)
       if (!postData.ok) {
         throw new Error(`HTTP error! status: ${postData.status}`)
       }
@@ -93,7 +90,6 @@ const Navbar = () => {
       handleClose()
       handleClick()
       let result = await postData.json()
-      console.log(result)
       setUser((prevUser) => ({
         ...prevUser,
         user: result.avatar,

@@ -14,20 +14,23 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }).single('image')
 
 module.exports.getPosts = async (req, res) => {
-  let posts = await Post.find({ author: req.user.id })
   //search the favorites[posts]
+  let user = await Users.findById(req.user.id).populate('favorites')
+
+  let posts = user.favorites
   const { query } = req.query
   if (query) {
-    console.log(query);
+    
     //find category by query by filtering posts with the query
     posts = posts.filter((item) => {
       return item.title.toLowerCase() === query.toLowerCase()
     })
-    res.send({ posts })
+    // console.log(posts);
+    res.send(posts)
   } else {
     //Find all categories
-    console.log(query);
-    res.send({ posts })
+    
+    res.send(posts)
   }
 }
 //Multer will be used in this controller
@@ -50,8 +53,9 @@ module.exports.createPost = async (req, res) => {
     });
     
     const user = await Users.findById(req.user.id)
+    
+    
     //Create Post then save
-    //console.log(user)
     const { title, description } = req.body
     //Capitalize title before saving to database
     const uppercaseTitle = title.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())
@@ -61,23 +65,21 @@ module.exports.createPost = async (req, res) => {
       image: `images/${req.file.filename}`,
       author: req.user.id,
     })
-    //  await user.populate('favorites')
-    await newPost.save()
-  
-    user.favorites.push(newPost)
-    await user.save()
-  
-    Users.findById(user)
-      .populate("favorites")
-      .exec((err, userWithFavorites) => {
-        if (err) {
+    
+    newPost.save()
+    Users.findByIdAndUpdate(
+      req.user.id,
+      { $push: { favorites: newPost._id } },
+      { new: true },
+      (err, updatedItem) => {
+        if(err) {
           console.log(err)
         } else {
-          console.log(userWithFavorites)
+          res.send(newPost)
         }
-      })
-    
-    res.send(newPost)
+      }
+    )
+
   } catch (error) {
     console.log(error)
   }
