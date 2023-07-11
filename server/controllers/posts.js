@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
   },
 })
 const upload = multer({ limits: {
-  fileSize: 1000 * 1000 * 70, // 70MB
+  fileSize: Infinity
 }, storage: storage }).single('image')
 
 module.exports.getPosts = async (req, res) => {
