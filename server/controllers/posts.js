@@ -11,9 +11,12 @@ const storage = multer.diskStorage({
     cb(null, file.originalname)
   },
 })
-const upload = multer({ limits: {
-  fileSize: Infinity // Set the maximum file size to Infinity
-}, storage: storage }).single('image')
+const upload = multer({ 
+  limits: {
+  fileSize: Infinity,
+  fieldSize: 50 * 1024 * 1024 // Set the maximum file size to Infinity
+}, 
+storage: storage }).single('image')
 
 module.exports.getPosts = async (req, res) => {
   //search the favorites[posts]
