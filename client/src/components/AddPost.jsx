@@ -42,8 +42,7 @@ const AddPost = ({ onAddPost }) => {
       crossDomain: true,
       headers: {
         Authorization: localStorage.getItem("token"),
-        "Content-Type": "application/json",
-          Accept: "application/json",
+        "Content-Type": "multipart/form-data",
           "Access-Control-Allow-Origin": "*",
       },
       body: userFormData,
