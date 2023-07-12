@@ -10,7 +10,7 @@ const path = require('path');
 const cors = require("cors")
 
 const app = express()
-app.use(express.json())
+
 //Setup Mongodb
 require("./config/database")
 //Tell app what to use
