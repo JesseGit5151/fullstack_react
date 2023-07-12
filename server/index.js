@@ -17,7 +17,7 @@ require("./config/database")
 app.use("/images", express.static("images"));
 app.use("/userImages", express.static("userImages"));
 app.use(express.json({limit: '100mb'}))
-app.use(express.urlencoded({ limit: '100mb', extended: true }));
+app.use(express.urlencoded({ limit: '100mb', extended: false }));
 app.use(cors({
   origin: "*",
 }))
