@@ -22,7 +22,7 @@ function App() {
   const handleAddPost = (newData) => {
      
     // Once successful, update the local state with the new post
-    setData({...data, newData})
+    setData([...data, newData])
 
   };
 
