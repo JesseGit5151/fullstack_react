@@ -13,11 +13,11 @@ module.exports.getPosts = async (req, res) => {
       return item.title.toLowerCase() === query.toLowerCase()
     })
     console.log(posts)
-    res.send({ posts })
+    res.send( posts )
   } else {
     //Find all categories
     console.log(posts)
-    res.send({ posts })
+    res.send( posts )
   }
 }
 //Multer will be used in this controller
