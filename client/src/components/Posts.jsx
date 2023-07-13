@@ -6,7 +6,7 @@ import Post from './Post'
 import styles from '../assets/styles/Posts.module.css';
 
 const Posts = ({ data, getData, onDeletePost }) => {
-console.log(data)
+
   const handleDeletePost = (postId) => {
     
     onDeletePost(postId)
@@ -23,7 +23,6 @@ console.log(data)
         localStorage.removeItem('token')
         navigate('auth/login')
       } else{
-        console.log(data)
         console.log('success')
         
         getData()

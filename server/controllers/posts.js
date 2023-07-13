@@ -1,24 +1,6 @@
 const Users = require("../models/users")
 const Post = require("../models/Posts")
 
-// const multer = require("multer")
-// //TODO:Create another storage for user avatars
-// const storage = multer.diskStorage({
-//   destination: function (req, file, callback) {
-//     callback(null, "./images")
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.originalname)
-//   },
-// })
-// const upload = multer({
-//   limits: {
-//     fileSize: 1024 * 1024 * 1024,
-//     fieldSize: 50 * 1024 * 1024,
-//   },
-//   storage: storage,
-// }).single("image")
-
 module.exports.getPosts = async (req, res) => {
   //search the favorites[posts]
   let user = await Users.findById(req.user.id).populate("favorites")

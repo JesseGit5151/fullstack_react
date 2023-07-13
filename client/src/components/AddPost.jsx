@@ -25,7 +25,7 @@ const AddPost = ({ onAddPost }) => {
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
-      console.log(e.target.files[0])
+      
       setImage(e.target.files[0])
     }
   }
@@ -42,14 +42,13 @@ const AddPost = ({ onAddPost }) => {
       crossDomain: true,
       headers: {
         Authorization: localStorage.getItem("token"),
-        "Content-Type": "multipart/form-data",
           "Access-Control-Allow-Origin": "*",
       },
       body: userFormData,
     })
-    console.log(postData)
+    
     let result = await postData.json()
-    console.log(result)
+    
 
     if (result) {
       onAddPost(result)

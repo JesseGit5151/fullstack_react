@@ -45,14 +45,12 @@ function App() {
   //fetch data from /posts route
   async function getData(query = "") {
     try {
-      console.log(query)
       const response = await fetch(`https://yourfavorites-api.onrender.com/posts?query=${query}`, {
         headers: {
           'Authorization': localStorage.getItem('token'),
         },
       });
       const data = await response.json();
-      console.log(data)
       setData(data)
     } catch (error) {
       console.error('An error occurred:', error);
