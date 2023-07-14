@@ -99,7 +99,6 @@ const UpdateAvatar = async (req, res) => {
 
 
 const logoutUser = async (req, res) => {
-  req.logout()
   res.send("logoutUser");
 };
 

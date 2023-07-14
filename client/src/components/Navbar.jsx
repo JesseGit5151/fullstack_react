@@ -66,12 +66,11 @@ const Navbar = () => {
           caches.delete(name);
         });
       });
-      alert('Complete Cache Cleared')
     };
     clearCacheData()
     localStorage.clear()
     window.location.reload(true)
-    navigate("/login")
+    navigate('/auth/login', { replace: true })
   }
 
   const changeAvatar = (e) => {
