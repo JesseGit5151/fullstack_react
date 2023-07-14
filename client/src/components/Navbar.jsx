@@ -70,6 +70,7 @@ const Navbar = () => {
     };
     clearCacheData()
     localStorage.clear()
+    window.location.reload(true)
     navigate("/auth/login")
   }
 
