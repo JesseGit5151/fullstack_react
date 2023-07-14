@@ -63,7 +63,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="/auth/login" element={<Login />} />
-        <Route element={<ProtectedRoute />}>
+        
     <Route path="/posts" element={
       <>
         <Navbar />
@@ -72,7 +72,7 @@ function App() {
         <AddPost onAddPost={handleAddPost} />
       </>
     } />
-  </Route>
+  
       </Routes>
     </div>
   );
