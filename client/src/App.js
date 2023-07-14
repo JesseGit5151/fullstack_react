@@ -63,17 +63,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="/auth/login" element={<Login />} />
-        <Route path="/posts" element={<ProtectedRoute />}>
-    <Route
-      element={
-        <>
-          <Navbar />
-          <Searchbar onSearch={handleSearch} />
-          <Posts data={data} getData={getData} onDeletePost={handleDeletePost} />
-          <AddPost onAddPost={handleAddPost} />
-        </>
-      }
-    />
+        <Route element={<ProtectedRoute />}>
+    <Route path="/posts" element={
+      <>
+        <Navbar />
+        <Searchbar onSearch={handleSearch} />
+        <Posts data={data} getData={getData} onDeletePost={handleDeletePost} />
+        <AddPost onAddPost={handleAddPost} />
+      </>
+    } />
   </Route>
       </Routes>
     </div>
