@@ -4,7 +4,7 @@ const Post = require("../models/Posts")
 module.exports.getPosts = async (req, res) => {
   //search the favorites[posts]
   let user = await Users.findById(req.user.id).populate("favorites")
-
+  res.setHeader('Cache-Control', 'no-store'); // or 'no-cache' for more flexibility
   let posts = user.favorites
   const { query } = req.query
   if (query) {
