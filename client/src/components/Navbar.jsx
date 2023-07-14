@@ -60,6 +60,15 @@ const Navbar = () => {
   //UpdateAvatar component will replace <img> below
   const navigate = useNavigate()
   const logout = () => {
+    const clearCacheData = () => {
+      caches.keys().then((names) => {
+        names.forEach((name) => {
+          caches.delete(name);
+        });
+      });
+      alert('Complete Cache Cleared')
+    };
+    clearCacheData()
     localStorage.clear()
     navigate("/auth/login")
   }
