@@ -48,6 +48,7 @@ function App() {
       const response = await fetch(`https://yourfavorites-api.onrender.com/posts?query=${query}`, {
         headers: {
           'Authorization': localStorage.getItem('token'),
+          'Cache-Control': 'no-store',
         },
       });
       const data = await response.json();
