@@ -69,7 +69,7 @@ const Navbar = () => {
     };
     clearCacheData()
     localStorage.clear()
-    window.location.href = 'https://yourfavorites-api.onrender.com/'
+    window.location.href = '/auth/login'
     //navigate('/auth/login', { replace: true })
   }
 
