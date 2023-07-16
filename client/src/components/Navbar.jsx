@@ -69,7 +69,8 @@ const Navbar = () => {
     };
     clearCacheData()
     localStorage.clear()
-    navigate('/auth/login', { replace: true })
+    window.location.href = 'https://yourfavorites-api.onrender.com/'
+    //navigate('/auth/login', { replace: true })
   }
 
   const changeAvatar = (e) => {
