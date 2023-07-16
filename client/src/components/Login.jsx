@@ -13,6 +13,15 @@ const Login = () => {
 //2
   const handleSubmit = async(e) => {
     e.preventDefault()
+    const clearCacheData = () => {
+      caches.keys().then((names) => {
+        names.forEach((name) => {
+          caches.delete(name);
+        });
+      });
+    };
+    clearCacheData()
+    localStorage.clear()
       let postData = await fetch(`https://yourfavorites-api.onrender.com/auth/login`, {
         method: "POST",
         crossDomain: true,
