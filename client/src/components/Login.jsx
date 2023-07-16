@@ -15,6 +15,7 @@ const Login = () => {
         caches.delete(name);
       });
     });
+    console.log('sss')
   };
   clearCacheData()
   localStorage.clear()
