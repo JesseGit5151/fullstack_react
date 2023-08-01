@@ -1,6 +1,12 @@
 const Users = require("../models/users")
 const Post = require("../models/Posts")
 
+
+module.exports.getFeed = async (req, res) => {
+  let feed = await Post.find()
+  res.send(feed)
+}
+
 module.exports.getPosts = async (req, res) => {
   //search the favorites[posts]
   let user = await Users.findById(req.user.id).populate("favorites")

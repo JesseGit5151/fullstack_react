@@ -1,5 +1,5 @@
 const express = require("express");
-const { getPosts, createPost, deletePost } = require('../controllers/posts')
+const { getPosts, createPost, deletePost, getFeed } = require('../controllers/posts')
 const router = express.Router()
 const multer = require("multer")
 
@@ -18,7 +18,7 @@ const upload = multer({
   },
   storage: storage,
 })
-
+router.get('/', getFeed)
 router.get('/', getPosts)
 router.post('/',upload.single('image'), createPost)
 router.delete('/:id', deletePost)
