@@ -9,16 +9,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [isRevealPwd, setIsRevealPwd] = useState(false);
 
-  const clearCacheData = () => {
-    caches.keys().then((names) => {
-      names.forEach((name) => {
-        caches.delete(name);
-      });
-    });
-    console.log('sss')
-  };
-  clearCacheData()
-  localStorage.clear()
   const navigate = useNavigate();
 //2
   const handleSubmit = async(e) => {

@@ -2,7 +2,7 @@ const express = require("express");
 const { getPosts, createPost, deletePost } = require('../controllers/posts')
 const router = express.Router()
 const multer = require("multer")
-//TODO:Create another storage for user avatars
+
 const storage = multer.diskStorage({
   destination: function (req, file, callback) {
     callback(null, "./images")
