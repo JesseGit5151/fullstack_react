@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react"
 import Post from './Post'
+import styles from '../assets/styles/Posts.module.css';
 //Get all users posts - need to create a public/private setting on posts to determine what can go in the feed
 const Feed = () => {
 
