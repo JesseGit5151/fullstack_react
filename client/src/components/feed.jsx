@@ -6,8 +6,8 @@ import styles from '../assets/styles/Posts.module.css';
 const Feed = () => {
 
     const [data, setData] = useState([])
-    const getFeed = async()=> {
-        let feedData = await fetch(`https://yourfavorites-api.onrender.com/posts`, {
+    const getFeed = async(query = "")=> {
+        let feedData = await fetch(`https://yourfavorites-api.onrender.com/posts/feed?query=${query}`, {
             headers: {
               Authorization: localStorage.getItem("token"),
             },
@@ -16,6 +16,7 @@ const Feed = () => {
           setData(data)
     }
     useEffect(() => {
+
         getFeed()
     }, [])
   return (
