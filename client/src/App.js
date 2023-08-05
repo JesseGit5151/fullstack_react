@@ -64,8 +64,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="/auth/login" element={<Login />} />
-
         <Route
+          path="/home"
+          element={
+            <>
+              <Navbar />
+              <Searchbar onSearch={handleSearch} />
+              <Feed/>
+            </>
+          }
+        />
+        {/* <Route
           path="/posts"
           element={
             <>
@@ -79,7 +88,7 @@ function App() {
               <AddPost onAddPost={handleAddPost} />
             </>
           }
-        />
+        /> */}
       </Routes>
     </div>
   )

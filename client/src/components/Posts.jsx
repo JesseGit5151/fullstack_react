@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import jwt from 'jwt-decode'
 import Post from './Post'
 import styles from '../assets/styles/Posts.module.css';
-import feed from './feed'
+import Feed from './Feed'
 const Posts = ({ data, getData, onDeletePost }) => {
 
   const handleDeletePost = (postId) => {
@@ -32,7 +32,7 @@ const Posts = ({ data, getData, onDeletePost }) => {
 
   //Map through data to display
   return <div>
-    <feed />
+    <Feed />
     {data.length >= 1 ? (
       <div className={styles.main}>
         {data.map((item, index) => {
