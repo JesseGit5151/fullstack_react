@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styles from "../assets/styles/searchbar.module.css"
-const Searchbar = ({ searchInput, setSearchInput }) => {
+const Searchbar = ({ searchInput, setSearchInput, onSearch }) => {
 //Just set the search query & pass as prop to Posts - don't worry about data state(Posts)
 const handleChange = (e) => {
   //get query string

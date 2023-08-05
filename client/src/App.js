@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Routes, Route } from "react-router-dom"
 import Login from "./components/Login"
 import Register from "./components/Register"
-import Feed from './components/feed'
+import Feed from "./components/feed"
 import Posts from "./components/Posts"
 import AddPost from "./components/AddPost"
 import ProtectedRoute from "./components/ProtectedRoute"
@@ -14,10 +14,10 @@ import Navbar from "./components/Navbar"
 
 function App() {
   const [data, setData] = useState([])
-  const [searchInput, setSearchInput] = useState('')
-  // const handleSearch = (query) => {
-  //   getData(query)
-  // }
+  const [searchInput, setSearchInput] = useState("")
+  const handleSearch = (query) => {
+    setSearchInput(query)
+  }
 
   //TODO:setSuccess and pass down to this function
   const handleAddPost = (newData) => {
@@ -61,7 +61,6 @@ function App() {
     }
   }
 
-  
   return (
     <div className="App">
       <Routes>
@@ -72,8 +71,12 @@ function App() {
           element={
             <>
               <Navbar />
-              <Searchbar searchInput={searchInput} setSearchInput={setSearchInput} />
-              <Feed searchInput={searchInput}/>
+              <Searchbar
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+                onSearch={handleSearch}
+              />
+              <Feed searchInput={searchInput} />
             </>
           }
         />
