@@ -4,6 +4,7 @@ const Post = require("../models/Posts")
 
 module.exports.getFeed = async (req, res) => {
   let feed = await Post.find()
+  const { query } = req.query
   if (query) {
     //find category by query by filtering posts with the query
     feed = feed.filter((item) => {
