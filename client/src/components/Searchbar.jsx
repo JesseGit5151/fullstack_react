@@ -5,6 +5,7 @@ const Searchbar = ({ onSearch }) => {
 //Just set the search query & pass as prop to Posts - don't worry about data state(Posts)
 const handleChange = (e) => {
   //get query string
+  console.log(e.target.value)
   setSearchInput(e.target.value);
 };
 
