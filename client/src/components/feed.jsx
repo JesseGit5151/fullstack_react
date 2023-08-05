@@ -18,7 +18,7 @@ const Feed = ({ searchInput }) => {
     useEffect(() => {
 
         getFeed(searchInput)
-    }, [])
+    }, [searchInput])
   return (
     <div>{data.length >= 1 ? (
         <div className={styles.main}>
