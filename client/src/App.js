@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Routes, Route } from "react-router-dom"
 import Login from "./components/Login"
 import Register from "./components/Register"
-import Feed from './Feed'
+import Feed from './feed'
 import Posts from "./components/Posts"
 import AddPost from "./components/AddPost"
 import ProtectedRoute from "./components/ProtectedRoute"

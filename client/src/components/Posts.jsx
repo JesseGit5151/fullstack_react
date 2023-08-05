@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import jwt from 'jwt-decode'
 import Post from './Post'
 import styles from '../assets/styles/Posts.module.css';
-import Feed from './Feed'
+import Feed from './feed'
 const Posts = ({ data, getData, onDeletePost }) => {
 
   const handleDeletePost = (postId) => {
