@@ -33,7 +33,7 @@ const Login = () => {
         //4
         localStorage.setItem('token', result.user)
         console.log('success')
-        navigate('/posts')
+        navigate('/home')
       } else {
         console.log('unsuccessful')
       }

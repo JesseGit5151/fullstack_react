@@ -3,11 +3,11 @@ import { useEffect, useState } from "react"
 import Post from './Post'
 import styles from '../assets/styles/Posts.module.css';
 //Get all users posts - need to create a public/private setting on posts to determine what can go in the feed
-const Feed = () => {
+const Feed = ({ searchInput }) => {
 
     const [data, setData] = useState([])
-    const getFeed = async(query = "")=> {
-        let feedData = await fetch(`https://yourfavorites-api.onrender.com/posts/feed?query=${query}`, {
+    const getFeed = async(searchInput = "")=> {
+        let feedData = await fetch(`https://yourfavorites-api.onrender.com/posts/feed?query=${searchInput}`, {
             headers: {
               Authorization: localStorage.getItem("token"),
             },
@@ -17,7 +17,7 @@ const Feed = () => {
     }
     useEffect(() => {
 
-        getFeed()
+        getFeed(searchInput)
     }, [])
   return (
     <div>{data.length >= 1 ? (

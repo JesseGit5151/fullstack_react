@@ -14,10 +14,10 @@ import Navbar from "./components/Navbar"
 
 function App() {
   const [data, setData] = useState([])
-
-  const handleSearch = (query) => {
-    getData(query)
-  }
+  const [searchInput, setSearchInput] = useState('')
+  // const handleSearch = (query) => {
+  //   getData(query)
+  // }
 
   //TODO:setSuccess and pass down to this function
   const handleAddPost = (newData) => {
@@ -60,6 +60,8 @@ function App() {
       console.error("An error occurred:", error)
     }
   }
+
+  
   return (
     <div className="App">
       <Routes>
@@ -70,8 +72,8 @@ function App() {
           element={
             <>
               <Navbar />
-              <Searchbar onSearch={handleSearch} />
-              <Feed/>
+              <Searchbar searchInput={searchInput} setSearchInput={setSearchInput} />
+              <Feed searchInput={searchInput}/>
             </>
           }
         />
