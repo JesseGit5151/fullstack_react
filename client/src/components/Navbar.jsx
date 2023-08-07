@@ -1,7 +1,7 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import styles from "../assets/styles/Navbar.module.css"
-
+import { FaUserAlt } from 'react-icons/fa'
 import { useEffect, useState } from "react"
 import jwt from "jwt-decode"
 import Modal from "@material-ui/core/Modal"
@@ -154,6 +154,9 @@ const Navbar = () => {
                 </form>
               </div>
             </Modal>
+            <li >
+            <FaUserAlt />Profile
+            </li>
             <li onClick={logout}>
               <i className="fa-solid fa-arrow-right-from-bracket"></i>Logout
             </li>

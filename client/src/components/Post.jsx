@@ -15,9 +15,9 @@ const formattedDate = dateObj.toLocaleDateString("en-US", {
 
 
 
-  const handleClick = async () => {
-    onDeletePost(item._id);
-  }
+  // const handleClick = async () => {
+  //   onDeletePost(item._id);
+  // }
 
 
   return (
@@ -30,7 +30,7 @@ const formattedDate = dateObj.toLocaleDateString("en-US", {
       </h4>
       <p className={styles.p}>{item.description}</p>
       <span>{formattedDate}</span>
-      <FaRegTrashAlt className={styles.deletebutton} onClick={handleClick}/>
+      {/* <FaRegTrashAlt className={styles.deletebutton} onClick={handleClick}/> */}
       {/* <button className={styles.button} onClick={handleClick}>trash</button> */}
     </div>
   )
