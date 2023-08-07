@@ -155,7 +155,7 @@ const Navbar = () => {
               </div>
             </Modal>
             <li >
-            <FaUserAlt />Profile
+            <i class="fa-solid fa-user"></i>Profile
             </li>
             <li onClick={logout}>
               <i className="fa-solid fa-arrow-right-from-bracket"></i>Logout
