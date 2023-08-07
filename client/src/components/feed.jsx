@@ -13,6 +13,7 @@ const Feed = ({ searchInput }) => {
             },
           })
           let data = await feedData.json()
+          console.log(data)
           setData(data)
     }
     useEffect(() => {
