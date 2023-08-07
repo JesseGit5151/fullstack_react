@@ -8,7 +8,7 @@ module.exports.getFeed = async (req, res) => {
   if (query) {
     //find category by query by filtering posts with the query
     feed = feed.filter((item) => {
-      return item.title.toLowerCase() === query.toLowerCase()
+      return item.title.toLowerCase().includes(query)
     })
     console.log(feed)
     res.send( feed )
