@@ -18,7 +18,7 @@ const handleKeyPress = (event) => {
   return (
     <div className={styles.searcbarContainer}>
       <h2 className={styles.title}>Search others favorites</h2>
-      <span className={styles.span}>Global Favorites</span>
+      <span className={styles.span}>Latest links</span>
       <input
       className={styles.searchbar}
         type="text"
