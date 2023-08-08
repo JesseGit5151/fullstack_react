@@ -4,7 +4,7 @@ const Post = require("../models/Posts")
 
 module.exports.getFeed = async (req, res) => {
   let feed = await Post.find().populate("author")
-  console.log(feed.author.name)
+  console.log(feed[0].author)
   const { query } = req.query
   if (query) {
     //find category by query by filtering posts with the query
