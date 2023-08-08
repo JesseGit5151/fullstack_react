@@ -4,12 +4,12 @@ const Post = require("../models/Posts")
 
 module.exports.getFeed = async (req, res) => {
   let feed = await Post.find().populate("author")
-  console.log(feed[0].author)
+  // console.log(feed[0].author)
   const { query } = req.query
   if (query) {
     //find category by query by filtering posts with the query
     feed = feed.filter((item) => {
-      return item.title.toLowerCase().includes(query)
+      return item.title.toLowerCase().includes(query.toLowerCase())
     })
     
     res.send( feed )
