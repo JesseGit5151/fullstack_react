@@ -3,7 +3,7 @@ const Post = require("../models/Posts")
 
 
 module.exports.getFeed = async (req, res) => {
-  let feed = await Post.find().populate("author")
+  let feed = await Post.find().populate("users")
   console.log(feed[0].author)
   const { query } = req.query
   if (query) {
