@@ -17,6 +17,7 @@ const handleKeyPress = (event) => {
 
   return (
     <div className={styles.searcbarContainer}>
+      <div className={styles.chevron}></div>
       <h2 className={styles.title}>See what others are into</h2>
       <input
       className={styles.searchbar}
