@@ -18,11 +18,10 @@ const handleKeyPress = (event) => {
   return (
     <div className={styles.searcbarContainer}>
       <h2 className={styles.title}>Search others favorites</h2>
-      <span className={styles.span}>Latest links</span>
       <input
       className={styles.searchbar}
         type="text"
-        placeholder="Search everyones favorites"
+        placeholder="Search..."
         onChange={handleChange}
         onKeyDown={handleKeyPress}
         value={searchInput}
