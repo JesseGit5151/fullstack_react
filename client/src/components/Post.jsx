@@ -16,7 +16,7 @@ const formattedDate = dateObj.toLocaleDateString("en-US", {
 });
 
 const handleMouseEnter = (e) => {
-  isHovering(true)
+  setIsHovering(true)
   console.log(e.target)
 }
 
