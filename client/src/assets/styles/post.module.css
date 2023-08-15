@@ -10,7 +10,9 @@
     border-radius: inherit;
 }
 .imgInfo {
-    
+    display: flex;
+    height: 33px;
+    align-items: center;
 }
 .title {
     font-weight: 700;
@@ -19,10 +21,16 @@
     color: darkgrey;
 }
 .avatar {
-    width: 39px;
-    height: 39px;
     border-radius: 36px;
+    height: 33px;
     object-fit: cover;
+    width: 33px;
+}
+.author {
+    margin-right: 23px;
+}
+.date {
+    margin-left: auto;
 }
 .deletebutton {
     font-size: 20px;

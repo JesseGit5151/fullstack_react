@@ -26,12 +26,12 @@ const formattedDate = dateObj.toLocaleDateString("en-US", {
       <img className={styles.image} src={`https://yourfavorites-api.onrender.com/${item.image}`} />
       <div className={styles.imgInfo}>
       <img className={styles.avatar} src={`https://yourfavorites-api.onrender.com/${item.author.avatar}`} />
-      <h3>{item.author.username}</h3>
+      <h3 className={styles.author}>{item.author.username}</h3>
       <h4 className={styles.title}>
       {item.title}
       </h4>
-      <p className={styles.p}>{item.description}</p>
-      <span>{formattedDate}</span>
+      {/* <p className={styles.p}>{item.description}</p> */}
+      <span className={styles.date}>{formattedDate}</span>
       </div>
       {/* <FaRegTrashAlt className={styles.deletebutton} onClick={handleClick}/> */}
       {/* <button className={styles.button} onClick={handleClick}>trash</button> */}
