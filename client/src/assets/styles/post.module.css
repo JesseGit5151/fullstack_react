@@ -9,6 +9,10 @@
     height: 300px;
     border-radius: inherit;
     margin-right: 8px;
+    
+}
+.link {
+    position: absolute;
 }
 .hidden {
     display: none;
