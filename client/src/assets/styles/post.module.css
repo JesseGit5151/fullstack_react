@@ -1,5 +1,5 @@
 .container {
-    width: 286px;
+    width: 400px;
     border-radius: 10px;
     position: relative;
 }
@@ -8,6 +8,9 @@
     object-fit: cover;
     height: 300px;
     border-radius: inherit;
+}
+.imgInfo {
+    
 }
 .title {
     font-weight: 700;
