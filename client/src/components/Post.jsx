@@ -29,7 +29,7 @@ const handleMouseLeave = (e) => {
 
   return (
     <div className={styles.container}>
-      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className={`${isHovering ? styles.hoverStyle : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <img className={styles.image} src={`https://yourfavorites-api.onrender.com/${item.image}`} />
       <a href='#' className={`${isHovering ? styles.link : styles.hidden}`}>{item.description}</a>
       </div>
@@ -39,11 +39,8 @@ const handleMouseLeave = (e) => {
       <h4 className={styles.title}>
       {item.title}
       </h4>
-      {/* <p className={styles.p}>{item.description}</p> */}
       <span className={styles.date}>{formattedDate}</span>
       </div>
-      {/* <FaRegTrashAlt className={styles.deletebutton} onClick={handleClick}/> */}
-      {/* <button className={styles.button} onClick={handleClick}>trash</button> */}
     </div>
   )
 }
