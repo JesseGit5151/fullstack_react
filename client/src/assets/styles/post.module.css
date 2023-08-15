@@ -8,11 +8,15 @@
     object-fit: cover;
     height: 300px;
     border-radius: inherit;
-    margin-right: 8px;
     
 }
 .link {
     position: absolute;
+    bottom: 50px;
+    left: 25px;
+    color: white;
+    text-decoration-line: none;
+    font-size: larger;
 }
 .hidden {
     display: none;
@@ -37,6 +41,7 @@
     height: 33px;
     object-fit: cover;
     width: 33px;
+    margin-right: 8px;
 }
 .author {
     margin-right: 23px;

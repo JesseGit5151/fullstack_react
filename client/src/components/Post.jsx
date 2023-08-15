@@ -29,9 +29,10 @@ const handleMouseLeave = (e) => {
 
   return (
     <div className={styles.container}>
-      
-      <img className={styles.image} src={`https://yourfavorites-api.onrender.com/${item.image}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
+      <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <img className={styles.image} src={`https://yourfavorites-api.onrender.com/${item.image}`} />
       <a href='#' className={`${isHovering ? styles.link : styles.hidden}`}>{item.description}</a>
+      </div>
       <div className={styles.imgInfo}>
       <img className={styles.avatar} src={`https://yourfavorites-api.onrender.com/${item.author.avatar}`} />
       <h3 className={styles.author}>{item.author.username}</h3>
