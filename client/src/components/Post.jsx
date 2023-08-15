@@ -1,7 +1,9 @@
 import React from 'react'
 import styles from "../assets/styles/post.module.css"
+import { useState } from "react"
 import { FaRegTrashAlt } from 'react-icons/fa';
 const Post = ({ item, onDeletePost }) => {
+  const [isHovering, setIsHovering] = useState(false)
   const timestamp = item.createdAt
   // Convert the timestamp to a Date object
 const dateObj = new Date(timestamp);
@@ -13,8 +15,14 @@ const formattedDate = dateObj.toLocaleDateString("en-US", {
   year: "numeric"
 });
 
+const handleMouseEnter = (e) => {
+  isHovering(true)
+  console.log(e.target)
+}
 
+const handleMouseLeave = (e) => {
 
+}
   // const handleClick = async () => {
   //   onDeletePost(item._id);
   // }
@@ -23,7 +31,8 @@ const formattedDate = dateObj.toLocaleDateString("en-US", {
   return (
     <div className={styles.container}>
       
-      <img className={styles.image} src={`https://yourfavorites-api.onrender.com/${item.image}`} />
+      <img className={styles.image} src={`https://yourfavorites-api.onrender.com/${item.image}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
+      <a href='#' className={`${isHovering ? styles.hidden: ''}`}>Link to website</a>
       <div className={styles.imgInfo}>
       <img className={styles.avatar} src={`https://yourfavorites-api.onrender.com/${item.author.avatar}`} />
       <h3 className={styles.author}>{item.author.username}</h3>
