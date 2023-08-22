@@ -30,7 +30,7 @@ const handleMouseLeave = (e) => {
   return (
     <div className={styles.container}>
       {/* add height: 300px & border-radius: inherit; */}
-      <div className={`${isHovering ? styles.h + styles.hoverStyle : styles.h}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <div className={`${isHovering ? styles.h + '' + styles.hoverStyle : styles.h}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <img className={styles.image} src={`https://yourfavorites-api.onrender.com/${item.image}`} />
       <a href='#' className={`${isHovering ? styles.link : styles.hidden}`}>{item.description}</a>
       </div>
