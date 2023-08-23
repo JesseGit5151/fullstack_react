@@ -6,6 +6,7 @@ import styles from '../assets/styles/Posts.module.css';
 const Feed = ({ searchInput }) => {
 
     const [data, setData] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     const getFeed = async(searchInput = "")=> {
         let feedData = await fetch(`https://yourfavorites-api.onrender.com/posts/feed?query=${searchInput}`, {
             headers: {
@@ -15,6 +16,7 @@ const Feed = ({ searchInput }) => {
           let data = await feedData.json()
           console.log(data)
           setData(data)
+          setIsLoading(false)
     }
     useEffect(() => {
 
@@ -28,8 +30,12 @@ const Feed = ({ searchInput }) => {
           })}
         </div>
       ) : (
-          <p>Loading...</p>
-      )}</div>
+          <p>No content saved yet</p>
+      )}
+      {isLoading && (
+        <p>Loading...</p>
+      )}
+      </div>
   )
 }
 
