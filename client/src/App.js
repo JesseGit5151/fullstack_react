@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import Login from "./components/Login"
 import Register from "./components/Register"
 import Feed from "./components/feed"
-import Posts from "./components/Posts"
+import Profile from "./components/Profile"
 import AddPost from "./components/AddPost"
 import ProtectedRoute from "./components/ProtectedRoute"
 import Searchbar from "./components/Searchbar"
@@ -80,21 +80,7 @@ function App() {
             </>
           }
         />
-        {/* <Route
-          path="/posts"
-          element={
-            <>
-              <Navbar />
-              <Searchbar onSearch={handleSearch} />
-              <Posts
-                data={data}
-                getData={getData}
-                onDeletePost={handleDeletePost}
-              />
-              <AddPost onAddPost={handleAddPost} />
-            </>
-          }
-        /> */}
+        <Route path="/profile" element={<Profile />}></Route>
       </Routes>
     </div>
   )

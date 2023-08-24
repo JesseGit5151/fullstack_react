@@ -72,10 +72,14 @@ const Navbar = () => {
     window.location.href = '/auth/login'
     //navigate('/auth/login', { replace: true })
   }
-
+  
   const changeAvatar = (e) => {
     //TODO:When user clicks 'change avatar', modal will pop up with form to ipdate image
     setOpen(true)
+  }
+
+  const profileView = () => {
+    navigate("/profile")
   }
 
   const handleSubmit = async (e) => {
@@ -154,8 +158,8 @@ const Navbar = () => {
                 </form>
               </div>
             </Modal>
-            <li >
-            <i class="fa-solid fa-user"></i>Profile
+            <li onClick={profileView} >
+            <i className="fa-solid fa-user"></i>Profile
             </li>
             <li onClick={logout}>
               <i className="fa-solid fa-arrow-right-from-bracket"></i>Logout
