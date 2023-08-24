@@ -3,6 +3,7 @@ import Navbar from "./Navbar"
 import Post from "./Post"
 const Profile = () => {
   const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
   //call fetch to retreive personal posts
   //fetch data from /posts route
   async function getData(query = "") {
@@ -19,6 +20,7 @@ const Profile = () => {
       const data = await response.json()
       console.log(data)
       setData(data)
+      setIsLoading(false)
     } catch (error) {
       console.error("An error occurred:", error)
     }
