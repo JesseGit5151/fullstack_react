@@ -23,19 +23,38 @@ const Feed = ({ searchInput }) => {
         getFeed(searchInput)
     }, [searchInput])
   return (
-    <div>{data.length >= 1 ? (
-        <div className={styles.main}>
-          {data.map((item, index) => {
-            return <Post key={index} item={item}/>
-          })}
-        </div>
+    <div>
+      {isLoading ? (
+        <div>Loading...</div>
       ) : (
-          <p>No content saved yet</p>
+        <div>
+          {data.length > 0 ? (
+            <div className={styles.main}>
+              {/* Render your data here */}
+              {data.map((item, index) => {
+             return <Post key={index} item={item}/>
+           })}
+            </div>
+          ) : (
+            <div>No content saved yet.</div>
+          )}
+        </div>
       )}
-      {isLoading && (
-        <p>Loading...</p>
-      )}
-      </div>
+
+</div>
+    // <div>{data.length >= 1 ? (
+    //     <div className={styles.main}>
+    //       {data.map((item, index) => {
+    //         return <Post key={index} item={item}/>
+    //       })}
+    //     </div>
+    //   ) : (
+    //       <p>No content saved yet</p>
+    //   )}
+    //   {isLoading && (
+    //     <p>Loading...</p>
+    //   )}
+    //   </div>
   )
 }
 
