@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from "./Navbar"
 import Post from "./Post"
+import styles from "../assets/styles/profile.module.css"
 const Profile = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -33,7 +34,7 @@ const Profile = () => {
     <div>
       <Navbar/>
       {/* create a div for the tags: profile - saved - settings */}
-      <ul>
+      <ul className={styles.subnav}>
         <li>Profile</li>
         <li>Saves</li>
         <li>Settings</li>
