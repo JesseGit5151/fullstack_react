@@ -81,7 +81,9 @@ const Navbar = () => {
   const profileView = () => {
     navigate("/profile")
   }
-
+  const home = () => {
+    navigate("/home")
+  }
   const handleSubmit = async (e) => {
     e.preventDefault()
     const avatarFormData = new FormData()
@@ -128,6 +130,9 @@ const Navbar = () => {
       {openProfile && (
         <div className={styles.dropDown}>
           <ul>
+          <li onClick={home}>
+          <i className="fa fa-feed"></i>Feed
+            </li>
             <li onClick={changeAvatar}>
               <i className="fas fa-images"></i>Update avatar
             </li>
