@@ -8,3 +8,7 @@
     padding-left: 1rem;
     cursor: pointer;
 }
+.subnav li:hover {
+    padding-left: 1rem;
+    cursor: pointer;
+}
