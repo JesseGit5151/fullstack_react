@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from "./Navbar"
 import Post from "./Post"
 import styles from "../assets/styles/profile.module.css"
-import ProfilePost from './profilePost'
+import ProfilePostCard from './ProfilePostCard'
 const Profile = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -49,7 +49,7 @@ const Profile = () => {
             <div>
               {/* Render your data here */}
               {data.map((item, index) => {
-             return <ProfilePost key={index} item={item} onDeletePost={handleDeletePost}/>
+             return <Profilepost key={index} item={item} onDeletePost={handleDeletePost}/>
            })}
             </div>
           ) : (

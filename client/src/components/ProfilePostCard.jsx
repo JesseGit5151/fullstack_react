@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "../assets/styles/post.module.css"
 import { useState } from "react"
 
-const ProfilePost = ({ item, onDeletePost }) => {
+const ProfilePostCard = ({ item, onDeletePost }) => {
     const [isHovering, setIsHovering] = useState(false)
     const timestamp = item.createdAt
   // Convert the timestamp to a Date object
@@ -39,4 +39,4 @@ const handleMouseEnter = (e) => {
   )
 }
 
-export default ProfilePost
+export default ProfilePostCard
