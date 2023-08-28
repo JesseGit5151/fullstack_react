@@ -3,7 +3,7 @@ import Navbar from "./Navbar"
 import Post from "./Post"
 import styles from "../assets/styles/profile.module.css"
 import ProfilePostCard from './ProfilePostCard'
-const Profile = () => {
+const Profile = ({ onDeletePost }) => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   //call fetch to retreive personal posts
@@ -31,6 +31,11 @@ const Profile = () => {
 
     getData()
 }, [])
+
+const handleDeletePost = (postId) => {
+    
+  onDeletePost(postId)
+}
   return (
     <div>
       <Navbar/>
