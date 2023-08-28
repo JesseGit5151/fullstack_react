@@ -49,7 +49,7 @@ const Profile = () => {
             <div>
               {/* Render your data here */}
               {data.map((item, index) => {
-             return <Profilepost key={index} item={item} onDeletePost={handleDeletePost}/>
+             return <ProfilePostCard key={index} item={item} onDeletePost={handleDeletePost}/>
            })}
             </div>
           ) : (
