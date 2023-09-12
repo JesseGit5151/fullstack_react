@@ -4,16 +4,16 @@ import { useState } from "react"
 
 const ProfilePostCard = ({ item, onDeletePost }) => {
     const [isHovering, setIsHovering] = useState(false)
-    const timestamp = item.createdAt
+    // const timestamp = item.createdAt
   // Convert the timestamp to a Date object
-const dateObj = new Date(timestamp);
+// const dateObj = new Date(timestamp);
 
 // Format the date to day/month/year
-const formattedDate = dateObj.toLocaleDateString("en-US", {
-  day: "2-digit",
-  month: "2-digit",
-  year: "numeric"
-});
+// const formattedDate = dateObj.toLocaleDateString("en-US", {
+//   day: "2-digit",
+//   month: "2-digit",
+//   year: "numeric"
+// });
 
 const handleMouseEnter = (e) => {
     setIsHovering(true)
@@ -33,7 +33,7 @@ const handleMouseEnter = (e) => {
       <h4 className={styles.title}>
       {item.title}
       </h4>
-      <span className={styles.date}>{formattedDate}</span>
+      {/* <span className={styles.date}>{formattedDate}</span> */}
       </div>
     </div>
   )
