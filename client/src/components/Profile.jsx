@@ -50,7 +50,7 @@ const handleDeletePost = (postId) => {
       <Navbar/>
       {/* create a div for the tags: profile - saved - settings */}
       <ul className={styles.subnav}>
-        <li id='profile' onClick={() => handleButtonClick('profile', <ProfilePostCard/>)}>Profile</li>
+        <li id='profile' onClick={() => handleButtonClick('profile', <ProfilePostCard item={data}/>)}>Profile</li>
         <li id='saves' onClick={() => handleButtonClick('saves', <Saves/>)}>Saves</li>
         <li id='settings' onClick={() => handleButtonClick('settings', <Settings/>)}>Settings</li>
         </ul>
