@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from "./Navbar"
-import Post from "./Post"
+import Saves from "./Saves"
+import Settings from "./Settings"
+
 import styles from "../assets/styles/profile.module.css"
 import ProfilePostCard from './ProfilePostCard'
 const Profile = ({ onDeletePost }) => {
   const [data, setData] = useState([])
+  const [activeButton, setActiveButton] = useState('profile');
+  const [mainContent, setMainContent] = useState(<ProfilePostCard/>);
   const [isLoading, setIsLoading] = useState(true)
   //call fetch to retreive personal posts
   //fetch data from /posts route
+  const handleButtonClick = (buttonId, content) => {
+    setActiveButton(buttonId);
+    setMainContent(content);
+  };
+
   async function getData(query = "") {
     try {
       const response = await fetch(
@@ -37,22 +46,23 @@ const handleDeletePost = (postId) => {
   onDeletePost(postId)
 }
   return (
-    <div>
+    <>
       <Navbar/>
       {/* create a div for the tags: profile - saved - settings */}
       <ul className={styles.subnav}>
-        <li>Profile</li>
-        <li>Saves</li>
-        <li>Settings</li>
+        <li id='profile' onClick={() => handleButtonClick('profile', <ProfilePostCard/>)}>Profile</li>
+        <li id='saves' onClick={() => handleButtonClick('saves', <Saves/>)}>Saves</li>
+        <li id='settings' onClick={() => handleButtonClick('settings', <Settings/>)}>Settings</li>
         </ul>
       {/* create a div for the content displayed */}
-      <div>{isLoading ? (
+      <div>{mainContent}</div>
+      {/* <div>{isLoading ? (
         <div>Loading...</div>
       ) : (
         <div>
           {data.length > 0 ? (
             <div>
-              {/* Render your data here */}
+             
               {data.map((item, index) => {
              return <ProfilePostCard key={index} item={item} onDeletePost={handleDeletePost}/>
            })}
@@ -61,8 +71,8 @@ const handleDeletePost = (postId) => {
             <div>No content saved yet.</div>
           )}
         </div>
-      )}</div>
-    </div>
+      )}</div> */}
+    </>
   )
 }
 
