@@ -56,10 +56,10 @@ const ProfilePostCard = ({ onDeletePost }) => {
       ) : (
         <div>
           {data.length > 0 ? (
-            <div className={styles.container}>
+            <div className={styles.main}>
               {data.map((item, index) => {
                 return (
-                  <>
+                  <div className={styles.container}>
                     <div key={index}
                       className={`${isHovering ? styles.hoverStyle : styles.h}`}
                       onMouseEnter={handleMouseEnter}
@@ -82,7 +82,7 @@ const ProfilePostCard = ({ onDeletePost }) => {
                       <h4 className={styles.title}>{item.title}</h4>
                       {/* <span className={styles.date}>{formattedDate}</span> */}
                     </div>
-                  </>
+                  </div>
                 )
               })}
             </div>
