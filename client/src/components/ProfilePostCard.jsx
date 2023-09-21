@@ -59,8 +59,8 @@ const ProfilePostCard = ({ onDeletePost }) => {
             <div className={styles.main}>
               {data.map((item, index) => {
                 return (
-                  <div className={styles.container}>
-                    <div key={index}
+                  <div key={index} className={styles.container}>
+                    <div 
                       className={`${isHovering ? styles.hoverStyle : styles.h}`}
                       onMouseEnter={handleMouseEnter}
                       onMouseLeave={handleMouseLeave}
