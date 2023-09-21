@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 
 const ProfilePostCard = ({ onDeletePost }) => {
   const [data, setData] = useState([])
-  const [isHovering, setIsHovering] = useState(false)
+  const [isHovering, setIsHovering] = useState(-1)
   const [isLoading, setIsLoading] = useState(true)
 //   const timestamp = item.createdAt
 //   //Convert the timestamp to a Date object
@@ -42,13 +42,13 @@ const ProfilePostCard = ({ onDeletePost }) => {
   const handleDeletePost = (postId) => {
     onDeletePost(postId)
   }
-  const handleMouseEnter = (e) => {
-    setIsHovering(true)
-  }
+  // const handleMouseEnter = (e) => {
+  //   setIsHovering(true)
+  // }
 
-  const handleMouseLeave = (e) => {
-    setIsHovering(false)
-  }
+  // const handleMouseLeave = (e) => {
+  //   setIsHovering(false)
+  // }
   return (
     <>
       {isLoading ? (
@@ -61,9 +61,9 @@ const ProfilePostCard = ({ onDeletePost }) => {
                 return (
                   <div key={index} className={styles.container}>
                     <div 
-                      className={`${isHovering ? styles.hoverStyle : styles.h}`}
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
+                      className={`${isHovering === index ? styles.hoverStyle : styles.h}`}
+                      onMouseEnter={() => setIsHovering(index)}
+                      onMouseLeave={() => setIsHovering(-1)}
                     >
                       <img
                         className={styles.image}
@@ -72,7 +72,7 @@ const ProfilePostCard = ({ onDeletePost }) => {
                       <a
                         href="#"
                         className={`${
-                          isHovering ? styles.link : styles.hidden
+                          isHovering === index ? styles.link : styles.hidden
                         }`}
                       >
                         {item.description}
