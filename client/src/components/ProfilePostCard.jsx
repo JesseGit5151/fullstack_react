@@ -50,11 +50,11 @@ const ProfilePostCard = ({ onDeletePost }) => {
     setIsHovering(false)
   }
   return (
-    <div>
+    <>
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <div>
+        <>
           {data.length > 0 ? (
             <div className={styles.main}>
               {data.map((item, index) => {
@@ -89,9 +89,9 @@ const ProfilePostCard = ({ onDeletePost }) => {
           ) : (
             <div>No content saved yet.</div>
           )}
-        </div>
+          </>
       )}
-    </div>
+    </>
   )
 }
 
