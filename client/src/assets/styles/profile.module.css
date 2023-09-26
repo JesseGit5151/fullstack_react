@@ -5,13 +5,15 @@
     border-bottom: 1px solid #e5e5e5;
 }
 .subnav li {
-    padding-left: 1rem;
+    padding: 0 0.5rem;
+    margin: 0 0.3rem;
     cursor: pointer;
 }
 .subnav li:hover {
-    padding-left: 1rem;
+    padding: 0 0.5rem;
+    margin: 0 0.3rem;
     cursor: pointer;
 }
 .underline {
-    border: 2px solid red;
+    border-bottom: 2px solid lightcoral;
 }
