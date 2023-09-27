@@ -76,7 +76,7 @@ const ProfilePostCard = ({ onDeletePost }) => {
                     <div className={styles.imgInfo}>
                       <h4 className={styles.title}>{item.title}</h4>
                       <span className={styles.date}>{item.createdAt}</span>
-                      <i className="fa fa-trash-o">Trash</i>
+                      <i className="far fa-trash-alt">Trash</i>
                     </div>
                   </div>
                 )
