@@ -27,6 +27,15 @@ const ProfilePostCard = ({ onDeletePost }) => {
       console.error("An error occurred:", error)
     }
   }
+  const timeFunc = (timestamp) => {
+    const dateObj = new Date(timestamp)
+    const formattedDate = dateObj.toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  })
+  return formattedDate
+  }
   // const timestamp = item.createdAt
   //Convert the timestamp to a Date object
   // const dateObj = new Date(timestamp)
@@ -75,8 +84,8 @@ const ProfilePostCard = ({ onDeletePost }) => {
                     </div>
                     <div className={styles.imgInfo}>
                       <h4 className={styles.title}>{item.title}</h4>
-                      <span className={styles.date}>{item.createdAt}</span>
-                      <i className="far fa-trash-alt">Trash</i>
+                      <span className={styles.date}>{timeFunc(item.createdAt)}</span>
+                      <i className="far fa-trash-alt"></i>
                     </div>
                   </div>
                 )
