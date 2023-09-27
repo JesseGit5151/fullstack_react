@@ -72,7 +72,7 @@ const ProfilePostCard = ({ onDeletePost }) => {
                       >
                         {item.description}
                       </a>
-                      <i className="fa fa-trash-o" style="font-size:24px"></i>
+                      <i className="fa fa-trash-o"></i>
                     </div>
                     <div className={styles.imgInfo}>
                       <h4 className={styles.title}>{item.title}</h4>
