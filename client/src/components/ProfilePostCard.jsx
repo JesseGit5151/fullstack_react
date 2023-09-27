@@ -29,14 +29,14 @@ const ProfilePostCard = ({ onDeletePost }) => {
   }
   // const timestamp = item.createdAt
   //Convert the timestamp to a Date object
-  const dateObj = new Date(timestamp)
+  // const dateObj = new Date(timestamp)
 
-  //Format the date to day/month/year
-  const formattedDate = dateObj.toLocaleDateString("en-US", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  })
+  // //Format the date to day/month/year
+  // const formattedDate = dateObj.toLocaleDateString("en-US", {
+  //   day: "2-digit",
+  //   month: "2-digit",
+  //   year: "numeric",
+  // })
   useEffect(() => {
     getData()
   }, [])
