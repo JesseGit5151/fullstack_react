@@ -1,8 +1,8 @@
 import React from "react"
 import styles from "../assets/styles/post.module.css"
 import { useState } from "react"
-import { FaRegTrashAlt } from "react-icons/fa"
-const Post = ({ item, onDeletePost }) => {
+
+const Post = ({ item }) => {
   const [isHovering, setIsHovering] = useState(false)
   const timestamp = item.createdAt
   // Convert the timestamp to a Date object

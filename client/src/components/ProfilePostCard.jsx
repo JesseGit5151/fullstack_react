@@ -2,20 +2,21 @@ import React from "react"
 import styles from "../assets/styles/post.module.css"
 import { useState, useEffect } from "react"
 
+
 const ProfilePostCard = ({ onDeletePost }) => {
   const [data, setData] = useState([])
   const [isHovering, setIsHovering] = useState(-1)
   const [isLoading, setIsLoading] = useState(true)
-//   const timestamp = item.createdAt
-//   //Convert the timestamp to a Date object
-//   const dateObj = new Date(timestamp)
+  const timestamp = item.createdAt
+  //Convert the timestamp to a Date object
+  const dateObj = new Date(timestamp)
 
-//   //Format the date to day/month/year
-//   const formattedDate = dateObj.toLocaleDateString("en-US", {
-//     day: "2-digit",
-//     month: "2-digit",
-//     year: "numeric",
-//   })
+  //Format the date to day/month/year
+  const formattedDate = dateObj.toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  })
 
   async function getData(query = "") {
     try {
@@ -42,13 +43,7 @@ const ProfilePostCard = ({ onDeletePost }) => {
   const handleDeletePost = (postId) => {
     onDeletePost(postId)
   }
-  // const handleMouseEnter = (e) => {
-  //   setIsHovering(true)
-  // }
-
-  // const handleMouseLeave = (e) => {
-  //   setIsHovering(false)
-  // }
+  
   return (
     <>
       {isLoading ? (
@@ -77,10 +72,11 @@ const ProfilePostCard = ({ onDeletePost }) => {
                       >
                         {item.description}
                       </a>
+                      <i className="fa fa-trash-o" style="font-size:24px"></i>
                     </div>
                     <div className={styles.imgInfo}>
                       <h4 className={styles.title}>{item.title}</h4>
-                      {/* <span className={styles.date}>{formattedDate}</span> */}
+                      <span className={styles.date}>{formattedDate}</span>
                     </div>
                   </div>
                 )
