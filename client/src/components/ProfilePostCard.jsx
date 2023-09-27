@@ -72,11 +72,11 @@ const ProfilePostCard = ({ onDeletePost }) => {
                       >
                         {item.description}
                       </a>
-                      <i className="fa fa-trash-o"></i>
                     </div>
                     <div className={styles.imgInfo}>
                       <h4 className={styles.title}>{item.title}</h4>
                       <span className={styles.date}>{item.createdAt}</span>
+                      <i className="fa fa-trash-o">Trash</i>
                     </div>
                   </div>
                 )
