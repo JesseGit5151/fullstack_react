@@ -41,6 +41,7 @@ const ProfilePostCard = ({ onDeletePost }) => {
     getData()
   }, [])
   const handleDeletePost = (postId) => {
+    console.log(postId)
     onDeletePost(postId)
   }
   

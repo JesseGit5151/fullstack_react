@@ -27,6 +27,7 @@ function App() {
 
   const handleDeletePost = async (postId) => {
     try {
+      console.log(postId)
       await fetch(`https://yourfavorites-api.onrender.com/posts/${postId}`, {
         method: "DELETE",
         headers: {
