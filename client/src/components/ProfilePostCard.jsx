@@ -36,16 +36,7 @@ const ProfilePostCard = ({ onDeletePost }) => {
   })
   return formattedDate
   }
-  // const timestamp = item.createdAt
-  //Convert the timestamp to a Date object
-  // const dateObj = new Date(timestamp)
-
-  // //Format the date to day/month/year
-  // const formattedDate = dateObj.toLocaleDateString("en-US", {
-  //   day: "2-digit",
-  //   month: "2-digit",
-  //   year: "numeric",
-  // })
+  
   useEffect(() => {
     getData()
   }, [])
@@ -85,7 +76,7 @@ const ProfilePostCard = ({ onDeletePost }) => {
                     <div className={styles.imgInfo}>
                       <h4 className={styles.title}>{item.title}</h4>
                       <span className={styles.date}>{timeFunc(item.createdAt)}</span>
-                      <i className="far fa-trash-alt"></i>
+                      <i className="far fa-trash-alt" onClick={handleDeletePost}></i>
                     </div>
                   </div>
                 )
