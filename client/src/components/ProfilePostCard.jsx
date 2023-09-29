@@ -76,7 +76,7 @@ const ProfilePostCard = ({ onDeletePost }) => {
                     <div className={styles.imgInfo}>
                       <h4 className={styles.title}>{item.title}</h4>
                       <span className={styles.date}>{timeFunc(item.createdAt)}</span>
-                      <i className="far fa-trash-alt" onClick={() => handleDeletePost(item._id)}></i>
+                      <i className="far fa-trash-alt" onClick={() => handleDeletePost(item.id)}></i>
                     </div>
                   </div>
                 )
