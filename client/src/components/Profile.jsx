@@ -40,16 +40,16 @@ const Profile = ({ onDeletePost }) => {
 //     getData()
 // }, [])
 
-// const handleDeletePost = (postId) => {
+const handleDeletePost = (postId) => {
     
-//   onDeletePost(postId)
-// }
+  onDeletePost(postId)
+}
   return (
     <>
       <Navbar/>
       {/* create a div for the tags: profile - saved - settings */}
       <ul className={styles.subnav}>
-        <li className={activeButton === 'profile' ? styles.underline : ''} id='profile' onClick={() => handleButtonClick('profile', <ProfilePostCard onDeletePost={onDeletePost}/>)}>Profile</li>
+        <li className={activeButton === 'profile' ? styles.underline : ''} id='profile' onClick={() => handleButtonClick('profile', <ProfilePostCard onDeletePost={handleDeletePost}/>)}>Profile</li>
         <li className={activeButton === 'saves' ? styles.underline : ''} id='saves' onClick={() => handleButtonClick('saves', <Saves/>)}>Saves</li>
         <li className={activeButton === 'settings' ? styles.underline : ''} id='settings' onClick={() => handleButtonClick('settings', <Settings/>)}>Settings</li>
         </ul>
