@@ -49,7 +49,7 @@ const Profile = ({ onDeletePost }) => {
       <Navbar/>
       {/* create a div for the tags: profile - saved - settings */}
       <ul className={styles.subnav}>
-        <li className={activeButton === 'profile' ? styles.underline : ''} id='profile' onClick={() => handleButtonClick('profile', <ProfilePostCard />)}>Profile</li>
+        <li className={activeButton === 'profile' ? styles.underline : ''} id='profile' onClick={() => handleButtonClick('profile', <ProfilePostCard onDeletePost={onDeletePost}/>)}>Profile</li>
         <li className={activeButton === 'saves' ? styles.underline : ''} id='saves' onClick={() => handleButtonClick('saves', <Saves/>)}>Saves</li>
         <li className={activeButton === 'settings' ? styles.underline : ''} id='settings' onClick={() => handleButtonClick('settings', <Settings/>)}>Settings</li>
         </ul>
