@@ -41,7 +41,7 @@ const Profile = ({ onDeletePost }) => {
 // }, [])
 
 const handleDelete = (postId) => {
-    
+    console.log('profile')
   onDeletePost(postId)
 }
   return (
