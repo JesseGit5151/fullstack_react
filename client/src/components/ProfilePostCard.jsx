@@ -3,7 +3,7 @@ import styles from "../assets/styles/post.module.css"
 import { useState, useEffect } from "react"
 
 
-const ProfilePostCard = ({ onDeletePost }) => {
+const ProfilePostCard = ({ deletePost }) => {
   const [data, setData] = useState([])
   const [isHovering, setIsHovering] = useState(-1)
   const [isLoading, setIsLoading] = useState(true)
@@ -42,7 +42,7 @@ const ProfilePostCard = ({ onDeletePost }) => {
   }, [])
   const handleDeletePost = (postId) => {
     console.log(postId)
-    onDeletePost(postId)
+    deletePost(postId)
   }
   
   return (
