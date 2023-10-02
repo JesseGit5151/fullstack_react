@@ -39,7 +39,7 @@ const ProfilePostCard = ({ deletePost }) => {
   
   useEffect(() => {
     getData()
-  }, [])
+  }, [data])
   
   
   return (
