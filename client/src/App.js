@@ -36,7 +36,7 @@ function App() {
       })
 
       // Filter out the post with the given postId
-      const updatedData = data.filter((post) => post._id !== postId)
+      const updatedData = data.filter((post) => post.id !== postId)
       setData(updatedData)
     } catch (error) {
       console.log("Error deleting post:", error)
