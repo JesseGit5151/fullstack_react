@@ -40,9 +40,9 @@ const ProfilePostCard = ({ deletePost }) => {
   useEffect(() => {
     getData()
   }, [])
-  const handleDeletePost = (postId) => {
-    console.log(postId)
-    deletePost(postId)
+  const handleDeletePost = () => {
+    
+    deletePost(item._id)
   }
   
   return (
@@ -77,7 +77,7 @@ const ProfilePostCard = ({ deletePost }) => {
                     <div className={styles.imgInfo}>
                       <h4 className={styles.title}>{item.title}</h4>
                       <span className={styles.date}>{timeFunc(item.createdAt)}</span>
-                      <i className="far fa-trash-alt" onClick={() => handleDeletePost(item._id)}></i>
+                      <i className="far fa-trash-alt" onClick={() => handleDeletePost()}></i>
                     </div>
                   </div>
                 )
