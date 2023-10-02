@@ -42,7 +42,7 @@ const ProfilePostCard = ({ deletePost }) => {
   }, [])
   const handleDeletePost = () => {
     
-    deletePost(item._id)
+    deletePost(id)
   }
   
   return (
