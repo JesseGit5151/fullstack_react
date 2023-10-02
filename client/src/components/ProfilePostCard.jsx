@@ -27,6 +27,7 @@ const ProfilePostCard = ({ deletePost }) => {
       console.error("An error occurred:", error)
     }
   }
+  getData()
   const timeFunc = (timestamp) => {
     const dateObj = new Date(timestamp)
     const formattedDate = dateObj.toLocaleDateString("en-US", {
@@ -37,9 +38,9 @@ const ProfilePostCard = ({ deletePost }) => {
   return formattedDate
   }
   
-  useEffect(() => {
-    getData()
-  }, [])
+  // useEffect(() => {
+  //   getData()
+  // }, [])
   
   
   return (
