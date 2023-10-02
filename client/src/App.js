@@ -82,7 +82,7 @@ function App() {
             </>
           }
         />
-        <Route path="/profile" element={<Profile onDeletePost={handleDeletePost} />}></Route>
+        <Route path="/profile" element={<Profile/>}></Route>
       </Routes>
     </div>
   )
