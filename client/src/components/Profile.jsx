@@ -5,9 +5,9 @@ import Settings from "./Settings"
 
 import styles from "../assets/styles/profile.module.css"
 import ProfilePostCard from './ProfilePostCard'
-const Profile = ({ onDeletePost }) => {
+const Profile = () => {
   const [activeButton, setActiveButton] = useState('profile');
-  const [mainContent, setMainContent] = useState(<ProfilePostCard deletePost={onDeletePost}/>);
+  const [mainContent, setMainContent] = useState(<ProfilePostCard/>);
   
   //call fetch to retreive personal posts
   //fetch data from /posts route

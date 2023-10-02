@@ -25,24 +25,24 @@ function App() {
     setData([...data, newData])
   }
 
-  const handleDeletePost = async (postId) => {
-    try {
-      console.log(postId)
-      await fetch(`https://yourfavorites-api.onrender.com/posts/${postId}`, {
-        method: "DELETE",
-        headers: {
-          Authorization: localStorage.getItem("token"),
-        },
-      })
+  // const handleDeletePost = async (postId) => {
+  //   try {
+  //     console.log(postId)
+  //     await fetch(`https://yourfavorites-api.onrender.com/posts/${postId}`, {
+  //       method: "DELETE",
+  //       headers: {
+  //         Authorization: localStorage.getItem("token"),
+  //       },
+  //     })
 
-      // Filter out the post with the given postId
-      const updatedData = data.filter((post) => post._id !== postId)
-      console.log(updatedData)
-      setData(updatedData)
-    } catch (error) {
-      console.log("Error deleting post:", error)
-    }
-  }
+  //     // Filter out the post with the given postId
+  //     const updatedData = data.filter((post) => post._id !== postId)
+  //     console.log(updatedData)
+  //     setData(updatedData)
+  //   } catch (error) {
+  //     console.log("Error deleting post:", error)
+  //   }
+  // }
   //fetch data from /posts route
   async function getData(query = "") {
     try {

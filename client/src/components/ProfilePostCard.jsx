@@ -3,10 +3,31 @@ import styles from "../assets/styles/post.module.css"
 import { useState, useEffect } from "react"
 
 
-const ProfilePostCard = ({ deletePost }) => {
+const ProfilePostCard = () => {
   const [data, setData] = useState([])
   const [isHovering, setIsHovering] = useState(-1)
   const [isLoading, setIsLoading] = useState(true)
+
+  const handleDeletePost = async (postId) => {
+    try {
+      console.log(postId)
+      await fetch(`https://yourfavorites-api.onrender.com/posts/${postId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+
+      // Filter out the post with the given postId
+      const updatedData = data.filter((post) => post._id !== postId)
+      console.log(updatedData)
+      setData(updatedData)
+    } catch (error) {
+      console.log("Error deleting post:", error)
+    }
+  }
+
+
 
   async function getData(query = "") {
     try {
@@ -27,7 +48,6 @@ const ProfilePostCard = ({ deletePost }) => {
       console.error("An error occurred:", error)
     }
   }
-  getData()
   const timeFunc = (timestamp) => {
     const dateObj = new Date(timestamp)
     const formattedDate = dateObj.toLocaleDateString("en-US", {
@@ -38,9 +58,9 @@ const ProfilePostCard = ({ deletePost }) => {
   return formattedDate
   }
   
-  // useEffect(() => {
-  //   getData()
-  // }, [])
+  useEffect(() => {
+    getData()
+  }, [])
   
   
   return (
@@ -75,7 +95,7 @@ const ProfilePostCard = ({ deletePost }) => {
                     <div className={styles.imgInfo}>
                       <h4 className={styles.title}>{item.title}</h4>
                       <span className={styles.date}>{timeFunc(item.createdAt)}</span>
-                      <i className="far fa-trash-alt" onClick={() => deletePost(item._id)}></i>
+                      <i className="far fa-trash-alt" onClick={() => handleDeletePost(item._id)}></i>
                     </div>
                   </div>
                 )
