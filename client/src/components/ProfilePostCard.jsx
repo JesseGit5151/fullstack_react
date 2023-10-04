@@ -1,7 +1,7 @@
 import React from "react"
 import styles from "../assets/styles/post.module.css"
 import { useState, useEffect } from "react"
-
+import AddPost from "./AddPost"
 
 const ProfilePostCard = () => {
   const [data, setData] = useState([])
@@ -104,6 +104,7 @@ const ProfilePostCard = () => {
           ) : (
             <div>No content saved yet.</div>
           )}
+          <AddPost />
           </>
       )}
     </>
