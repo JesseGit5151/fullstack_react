@@ -20,10 +20,10 @@ function App() {
   }
 
   //TODO:setSuccess and pass down to this function
-  const handleAddPost = (newData) => {
-    // Once successful, update the local state with the new post
-    setData([...data, newData])
-  }
+  // const handleAddPost = (newData) => {
+  //   // Once successful, update the local state with the new post
+  //   setData([...data, newData])
+  // }
 
   // const handleDeletePost = async (postId) => {
   //   try {

@@ -8,6 +8,13 @@ const ProfilePostCard = () => {
   const [isHovering, setIsHovering] = useState(-1)
   const [isLoading, setIsLoading] = useState(true)
 
+
+  const handleAddPost = (newData) => {
+    // Once successful, update the local state with the new post
+    setData([...data, newData])
+  }
+
+
   const handleDeletePost = async (postId) => {
     try {
       console.log(postId)
@@ -104,7 +111,7 @@ const ProfilePostCard = () => {
           ) : (
             <div>No content saved yet.</div>
           )}
-          <AddPost />
+          <AddPost onAddPost={handleAddPost} />
           </>
       )}
     </>
