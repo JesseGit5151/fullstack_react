@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 //User schema: user, hash, salt, favorites [{  }]
-
+//Add saves as an array
 const userSchema = new mongoose.Schema({
   username: String,
   password: String,

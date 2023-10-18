@@ -1,5 +1,5 @@
 const express = require("express");
-const { getPosts, createPost, deletePost, getFeed } = require('../controllers/posts')
+const { getPosts, createPost, deletePost, getFeed, likePosts } = require('../controllers/posts')
 const router = express.Router()
 const multer = require("multer")
 
@@ -20,6 +20,7 @@ const upload = multer({
 })
 router.get('/feed', getFeed)
 router.get('/', getPosts)
+router.put('likes', likePosts)
 router.post('/',upload.single('image'), createPost)
 router.delete('/:id', deletePost)
 module.exports = router

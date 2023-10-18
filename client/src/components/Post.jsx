@@ -49,6 +49,7 @@ const Post = ({ item }) => {
         />
         <h3 className={styles.author}>{item.author.username}</h3>
         <h4 className={styles.title}>{item.title}</h4>
+        <i className="fa fa-heart-o"></i>
         <span className={styles.date}>{formattedDate}</span>
       </div>
     </div>

@@ -75,6 +75,16 @@ module.exports.createPost = async (req, res) => {
     console.log(error)
   }
 }
+//Send the liked id to users saves array
+module.exports.likePosts = async (req, res) => {
+  //grab id of liked post
+  //get users saves array
+  //check if id of liked post exist in users saves array
+  //if true: remove that id from saves array(dislike)
+  //if false: add that post array to the users saves array
+  //return that post id
+  res.send({ message: 'like'})
+}
 
 module.exports.deletePost = async (req, res) => {
   let { id } = req.params
