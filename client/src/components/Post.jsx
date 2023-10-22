@@ -25,6 +25,9 @@ const Post = ({ item }) => {
   // const handleClick = async () => {
   //   onDeletePost(item._id);
   // }
+  const heartClick = (e) => {
+    console.log('hearted')
+  }
 
   return (
     <div className={styles.container}>
@@ -49,7 +52,7 @@ const Post = ({ item }) => {
         />
         <h3 className={styles.author}>{item.author.username}</h3>
         <h4 className={styles.title}>{item.title}</h4>
-        <i className="fas fa-heart"></i>
+        <i onClick={heartClick} className="fas fa-heart"></i>
         <span className={styles.date}>{formattedDate}</span>
       </div>
     </div>
