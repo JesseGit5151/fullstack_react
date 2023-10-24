@@ -25,8 +25,23 @@ const Post = ({ item }) => {
   // const handleClick = async () => {
   //   onDeletePost(item._id);
   // }
-  const heartClick = (e) => {
-    console.log('hearted')
+  const heartClick = async (e) => {
+    //when clicked, that card id will be fetched{put} to backend where it will be added to saves array
+    try {
+      let postData = await fetch(`https://yourfavorites-api.onrender.com/likes`, {
+        method: "PUT",
+        crossDomain: true,
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      
+      let result = await postData.json()
+    } catch (error) {
+      console.error(error)
+    }
+    //will also change color of heart while icon is being clicked
+    console.log(item._id)
   }
 
   return (
