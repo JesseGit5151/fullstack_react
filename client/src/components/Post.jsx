@@ -34,6 +34,7 @@ const Post = ({ item }) => {
         method: "PUT",
         crossDomain: true,
         headers: {
+          "Content-Type":"application/json",
           Authorization: localStorage.getItem("token"),
         },
         body:JSON.stringify({
