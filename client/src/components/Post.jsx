@@ -36,7 +36,7 @@ const Post = ({ item }) => {
           Authorization: localStorage.getItem("token"),
         },
         body:JSON.stringify({
-          postId:id
+          postId: id
       })
       })
       
