@@ -84,7 +84,7 @@ module.exports.likePosts = async (req, res) => {
   //if true: remove that id from saves array(dislike)
   //if false: add that post array to the users saves array
   //return that post id
-  res.send({ message: 'like'})
+  res.send({ message: req.body})
 }
 
 module.exports.deletePost = async (req, res) => {
