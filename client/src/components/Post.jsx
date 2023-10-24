@@ -3,7 +3,7 @@ import styles from "../assets/styles/post.module.css"
 import { useState } from "react"
 
 const Post = ({ item }) => {
-  //Create state for heart color changed
+  //Create state for heart color changed f
   const [isHovering, setIsHovering] = useState(false)
   const timestamp = item.createdAt
   // Convert the timestamp to a Date object
