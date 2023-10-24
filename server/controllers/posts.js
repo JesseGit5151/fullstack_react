@@ -77,6 +77,7 @@ module.exports.createPost = async (req, res) => {
 }
 //Send the liked id to users saves array
 module.exports.likePosts = async (req, res) => {
+  console.log(req.body)
   //grab id of liked post
   //get users saves array
   //check if id of liked post exist in users saves array

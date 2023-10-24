@@ -25,18 +25,22 @@ const Post = ({ item }) => {
   // const handleClick = async () => {
   //   onDeletePost(item._id);
   // }
-  const heartClick = async (e) => {
+  const heartClick = async (id) => {
     //when clicked, that card id will be fetched{put} to backend where it will be added to saves array
+    //when fetch update is successful, heart color state will be updated
     try {
-      let postData = await fetch(`https://yourfavorites-api.onrender.com/likes`, {
+      let postData = await fetch(`https://yourfavorites-api.onrender.com/posts/likes`, {
         method: "PUT",
         crossDomain: true,
         headers: {
           Authorization: localStorage.getItem("token"),
         },
+        body:JSON.stringify({
+          postId:id
+      })
       })
       
-      let result = await postData.json()
+      await postData.json()
     } catch (error) {
       console.error(error)
     }
@@ -67,7 +71,7 @@ const Post = ({ item }) => {
         />
         <h3 className={styles.author}>{item.author.username}</h3>
         <h4 className={styles.title}>{item.title}</h4>
-        <i onClick={heartClick} className="fas fa-heart"></i>
+        <i onClick={()=>{heartClick(item._id)}} className="fas fa-heart"></i>
         <span className={styles.date}>{formattedDate}</span>
       </div>
     </div>
