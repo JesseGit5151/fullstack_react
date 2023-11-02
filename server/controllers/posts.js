@@ -87,6 +87,8 @@ module.exports.likePosts = async (req, res) => {
   if(user.likedPosts.includes(req.body.postId)) {
     console.log('true: already included')
   } else {
+    user.likedPosts.push(req.body.postId)
+    await user.save()
     console.log('false: not included')
   }
   //if true: remove that id from saves array(dislike)
