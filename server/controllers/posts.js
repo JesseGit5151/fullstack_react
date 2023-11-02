@@ -77,10 +77,18 @@ module.exports.createPost = async (req, res) => {
 }
 //Send the liked id to users saves array
 module.exports.likePosts = async (req, res) => {
-  console.log(req.body)
+  //the id of the liked post will be added to Post{refer to createpost function}
+  //Will also be added to Users saves array
   //grab id of liked post
+  console.log(req.body.postId)
   //get users saves array
+  const user = await Users.findById(req.user.id)
   //check if id of liked post exist in users saves array
+  if(user.likedPosts.includes(req.body.postId)) {
+    console.log('true: already included')
+  } else {
+    console.log('false: not included')
+  }
   //if true: remove that id from saves array(dislike)
   //if false: add that post array to the users saves array
   //return that post id

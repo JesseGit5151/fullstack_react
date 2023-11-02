@@ -6,6 +6,11 @@ const userSchema = new mongoose.Schema({
   username: String,
   password: String,
   avatar: String,
+  likedPosts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Blog', // Reference to the Post model
+    }],
   favorites: [{type: mongoose.Schema.Types.ObjectId, ref: 'Blog'}]
 });
 
