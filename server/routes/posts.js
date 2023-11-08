@@ -12,10 +12,6 @@ const storage = multer.diskStorage({
   },
 })
 const upload = multer({
-  limits: {
-    fileSize: 1024 * 1024 * 1024,
-    fieldSize: 50 * 1024 * 1024,
-  },
   storage: storage,
 })
 router.get('/feed', getFeed)
