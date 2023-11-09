@@ -67,7 +67,7 @@ module.exports.createPost = async (req, res) => {
         if (err) {
           console.log(err)
         } else {
-          res.send(updatedItem)
+          res.send(newPost)
         }
       }
     )
