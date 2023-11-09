@@ -54,11 +54,11 @@ module.exports.createPost = async (req, res) => {
     const newPost = new Post({
       title: uppercaseTitle,
       description: description,
-      image: `/images/${req.file.filename}`,
+      image: `images/${req.file.filename}`,
       author: req.user.id,
     })
 
-    newPost.save()
+    await newPost.save()
     Users.findByIdAndUpdate(
       req.user.id,
       { $push: { favorites: newPost._id } },
@@ -67,7 +67,7 @@ module.exports.createPost = async (req, res) => {
         if (err) {
           console.log(err)
         } else {
-          res.send(newPost)
+          res.send(updatedItem)
         }
       }
     )
