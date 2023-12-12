@@ -27,7 +27,7 @@ const Saves = () => {
   }, [])
   //map through data
   return (
-    <div>Saves{data}</div>
+    <div>Saves{likes}</div>
   )
 }
 
