@@ -101,6 +101,7 @@ module.exports.likePosts = async (req, res) => {
   res.send({ message: user.likedPosts})
 }
 module.exports.getSaves = async (req, res) => {
+  //Get current users saves list
   res.send({ message: 'saves list'})
 }
 
