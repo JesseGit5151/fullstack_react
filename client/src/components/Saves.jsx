@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 const Saves = () => {
-  const [likes, setLikes] = useState([])
+  const [likes, setLikes] = useState()
   //Fetch saves
   async function getLikes() {
     try {
