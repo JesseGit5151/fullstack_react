@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
 const Saves = () => {
-  const [likes, setLikes] = useState()
+  const [data, setData] = useState()
   //Fetch saves
   async function getLikes() {
     try {
@@ -16,7 +16,7 @@ const Saves = () => {
       )
       const data = await response.json()
       console.log(data)
-      setLikes(data)
+      setData(data)
     } catch (error) {
       console.error("An error occurred:", error)
     }
