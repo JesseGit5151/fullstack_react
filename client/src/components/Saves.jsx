@@ -28,9 +28,9 @@ const Saves = () => {
   //map through data
   return (
     <div>Saves
-      {data.length >= 1 ? (
+      {likes.length >= 1 ? (
       <div className={styles.main}>
-        {data.map((item, index) => {
+        {likes.map((item, index) => {
           return <div key={index}>{item} </div>
         })}
       </div>
