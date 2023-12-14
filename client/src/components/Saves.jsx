@@ -32,7 +32,7 @@ const Saves = () => {
       <div>
         {data.map((item, index) => {
           return <div key={index}>
-            <div>{item}</div>
+            <div>{item.title}</div>
           </div>
         })}
       </div>
