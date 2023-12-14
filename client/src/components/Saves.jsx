@@ -24,17 +24,18 @@ const Saves = () => {
   }
   useEffect(() => {
     getLikes()
+    console.log(likes)
   }, [])
   //map through data
   return (
     <div>Saves
-      <div>
+      {/* <div>
         {likes.map((item, index) => {
           return <div key={index}>
             <div>{item}</div>
           </div>
         })}
-      </div>
+      </div> */}
     </div>
   )
 }
