@@ -103,7 +103,7 @@ module.exports.likePosts = async (req, res) => {
 module.exports.getSaves = async (req, res) => {
   //Get current users saves list
   const user = await Users.findById(req.user.id)
-  res.send({ message: user.likedPosts})
+  res.send(user.likedPosts)
 }
 
 module.exports.deletePost = async (req, res) => {
