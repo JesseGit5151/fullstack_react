@@ -29,13 +29,13 @@ const Saves = () => {
   //map through data
   return (
     <div>Saves
-      {/* <div>
-        {likes.map((item, index) => {
+      <div>
+        {data.map((item, index) => {
           return <div key={index}>
             <div>{item}</div>
           </div>
         })}
-      </div> */}
+      </div>
     </div>
   )
 }
