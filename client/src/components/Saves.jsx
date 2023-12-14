@@ -6,7 +6,7 @@ const Saves = () => {
   async function getLikes() {
     try {
       const response = await fetch(
-        `https://yourfavorites-api.onrender.com/posts/likes`,
+        `https://yourfavorites-api.onrender.com/posts/saves`,
         {
           headers: {
             Authorization: localStorage.getItem("token"),
