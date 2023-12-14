@@ -30,7 +30,9 @@ const Saves = () => {
     <div>Saves
       <div>
         {likes.map((item, index) => {
-          return <div key={index}>{item} </div>
+          return <div key={index}>
+            <div>{item}</div>
+          </div>
         })}
       </div>
     </div>
