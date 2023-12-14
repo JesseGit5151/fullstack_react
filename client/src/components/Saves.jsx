@@ -24,7 +24,7 @@ const Saves = () => {
   }
   useEffect(() => {
     getLikes()
-    console.log(likes)
+    
   }, [])
   //map through data
   return (
