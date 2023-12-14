@@ -28,15 +28,11 @@ const Saves = () => {
   //map through data
   return (
     <div>Saves
-      {likes.length >= 1 ? (
       <div>
         {likes.map((item, index) => {
           return <div key={index}>{item} </div>
         })}
       </div>
-    ) : (
-        <p>Loading...</p>
-    )}
     </div>
   )
 }
