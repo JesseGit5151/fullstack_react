@@ -86,6 +86,10 @@ module.exports.likePosts = async (req, res) => {
   const user = await Users.findById(req.user.id)
   //check if id of liked post exist in users saves array
   if(user.likedPosts.includes(req.body.postId)) {
+    //Find index of post ID
+    user.likedPosts.indexOf(req.body.postId)
+    console.log(user.likedPosts.indexOf(req.body.postId))
+    //splice(index, 1)
     console.log('true: already included')
   } else {
     console.log(req.body.postId)
