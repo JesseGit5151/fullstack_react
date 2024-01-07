@@ -87,8 +87,16 @@ module.exports.likePosts = async (req, res) => {
   //check if id of liked post exist in users saves array
   if(user.likedPosts.includes(req.body.postId)) {
     //Find index of post ID
-    user.likedPosts.indexOf(req.body.postId)
-    console.log(user.likedPosts.indexOf(req.body.postId))
+    let indexOfPostId = user.likedPosts.indexOf(req.body.postId)
+    console.log(indexOfPostId)
+    //delete from logged in users saves
+    user.likedPosts.splice(indexOfPostId, 1)
+    //delete logged in users like (-1) from the post
+    let indexOfUserId = post.likes.indexOf(user)
+    post.likes.splice(indexOfUserId, 1)
+    console.log(indexOfUserId)
+    await user.save()
+    await post.save()
     //splice(index, 1)
     console.log('true: already included')
   } else {
