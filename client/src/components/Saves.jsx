@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-
+import styles from "../assets/styles/post.module.css"
 const Saves = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -36,15 +36,15 @@ const Saves = () => {
       ) : (
         <>
           {data.length > 0 ? (
-            <div>
+            <div className={styles.main}>
               {data.map((item, index) => {
                 return (
-                  <div key={index} >
+                  <div key={index} className={styles.container}>
                     <div 
                 
                     >
                       <img
-                        
+                        className={styles.image}
                         src={`https://yourfavorites-api.onrender.com/${item.image}`}
                       />
                       <a
@@ -54,8 +54,8 @@ const Saves = () => {
                         {item.description}
                       </a>
                     </div>
-                    <div >
-                      <h4 >{item.title}</h4>
+                    <div className={styles.imgInfo}>
+                      <h4 className={styles.title}>{item.title}</h4>
                       <span >{item.createdAt}</span>
                       
                     </div>
