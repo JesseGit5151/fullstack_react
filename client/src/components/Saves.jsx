@@ -3,6 +3,37 @@ import styles from "../assets/styles/post.module.css"
 const Saves = () => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+
+  const heartClick = async (id) => {
+    //when clicked, that card id will be fetched{put} to backend where it will be added to saves array
+    //when fetch update is successful, heart color state will be updated
+    try {
+      let postData = await fetch(`https://yourfavorites-api.onrender.com/posts/likes`, {
+        method: "PUT",
+        crossDomain: true,
+        headers: {
+          "Content-Type":"application/json",
+          Authorization: localStorage.getItem("token"),
+        },
+        body:JSON.stringify({
+          postId: id
+      })
+      })
+      //You will filter out the disliked card and use that updated filtered list to update state
+      const updatedData = data.filter((post) => post._id !== id)
+      console.log(updatedData)
+      setData(updatedData)
+      await postData.json()
+    } catch (error) {
+      console.error(error)
+    }
+    //will also change color of heart while icon is being clicked
+    console.log(item._id)
+  }
+
+
+
+
   //Fetch saves
   async function getLikes() {
     try {
@@ -56,6 +87,7 @@ const Saves = () => {
                     </div>
                     <div className={styles.imgInfo}>
                       <h4 className={styles.title}>{item.title}</h4>
+                      <i onClick={()=>{heartClick(item._id)}} className="fas fa-heart"></i>
                       <span >{item.createdAt}</span>
                       
                     </div>
