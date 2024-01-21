@@ -28,7 +28,7 @@ const Saves = () => {
       console.error(error)
     }
     //will also change color of heart while icon is being clicked
-    console.log(item._id)
+    
   }
 
 
